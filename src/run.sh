@@ -1,0 +1,3 @@
+mpirun -np 8 main -eps_type arnoldi -eps_nev 1 -eps_ncv 16 -st_type sinvert -eps_target 2.90 -st_ksp_type preonly -st_pc_type lu -st_pc_factor_mat_solver_package mumps -mat_mumps_icntl_14 80 -st_matmode inplace
+#mpirun -np 4 main -eps_type arnoldi -eps_nev 1 -eps_ncv 16 -st_type sinvert -eps_target 2.90 -evecs "eigenvec.txt" -eps_monitor -st_ksp_type preonly -st_pc_type lu -st_pc_factor_mat_solver_package mumps -mat_mumps_icntl_14 40 -st_matmode inplace
+#mpirun -np 12 main -eps_nev 10 -eps_ncv 24 -st_type sinvert -eps_target 4 -st_ksp_type preonly -st_pc_type lu -st_pc_factor_mat_solver_package mumps -mat_mumps_icntl_14 80

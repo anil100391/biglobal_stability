@@ -1,0 +1,18 @@
+#!/bin/sh
+
+#PBS -N juniper_test_case
+#PBS -q batch
+#PBS -l nodes=1:ppn=8
+#PBS -l walltime=1:00:00
+#PBS -l pmem=800M
+
+export OMP_NUM_THREADS=1
+cd /home/anil/biglobal/examples/
+
+echo '--------------------'
+date
+echo '--------------------'
+#mpirun main -eps_type lapack
+#mpirun --mca plm ^psm coflow_wakes -eps_nev 5 -eps_ncv 12 -st_type sinvert -eps_target 1.0 -st_ksp_type preonly -st_pc_type lu -st_pc_factor_mat_solver_package mumps -mat_mumps_icntl_14 80 > eigen.txt
+#mpirun coflow_wakes -eps_nev 5 -eps_ncv 12 -st_type sinvert -eps_target 4.0 > eigen.txt
+mpirun --mca plm ^psm coflow_wakes -eps_nev 5 -eps_ncv 12 -st_type sinvert -eps_target 0.5 > eigen.txt
