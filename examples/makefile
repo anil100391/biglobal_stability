@@ -1,10 +1,10 @@
 CFLAGs	   = 
 FFLAGS     = 
-HOME       = /home/anil/biglobal/src
+HOME       = /home/nebula/Dropbox/ME_project/biglobal/src
 CPPFLAGS   = -I$(HOME)/include
 FPPFLAGS   =
 CLEANFILES = main
-LIBD       = /home/anil/biglobal/lib
+LIBD       = /home/nebula/Dropbox/ME_project/biglobal/lib
 
 include $(SLEPC_DIR)/conf/slepc_common
 

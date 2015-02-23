@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <data.h>
 #include <slepceps.h>
+#include <math.h>
 
 int orr_sommerfeld(PetscScalar *alpha, PetscScalar *omega, ndr_data_t *arg)
 {
@@ -52,25 +53,25 @@ int orr_sommerfeld(PetscScalar *alpha, PetscScalar *omega, ndr_data_t *arg)
     for (i=2; i<=ny-2; i++) {
         d2T[i][0] = 0.0;
         d2T[i][1] = 0.0;
-        dT[i][2] = 4.0;
+        d2T[i][2] = 4.0;
     }    
     for (i=2; i<=ny-2; i++)
         for (j=3; j<ny+1; j++)
             d2T[i][j] = 2.0*j*dT[i][j-1]+(1.0*j/(j-2))*d2T[i][j-2];
 
     for (i=2; i<=ny-2; i++) {
-        dT[i][0] = 0.0;
-        dT[i][1] = 0.0;
-        dT[i][2] = 0.0;
+        d3T[i][0] = 0.0;
+        d3T[i][1] = 0.0;
+        d3T[i][2] = 0.0;
     }    
     for (i=2; i<=ny-2; i++)
         for (j=3; j<ny+1; j++)
             d3T[i][j] = 2.0*j*d2T[i][j-1]+(1.0*j/(j-2))*d3T[i][j-2];
 
     for (i=2; i<=ny-2; i++) {
-        dT[i][0] = 0.0;
-        dT[i][1] = 0.0;
-        dT[i][2] = 0.0;
+        d4T[i][0] = 0.0;
+        d4T[i][1] = 0.0;
+        d4T[i][2] = 0.0;
     }    
     for (i=2; i<=ny-2; i++)
         for (j=3; j<ny+1; j++)

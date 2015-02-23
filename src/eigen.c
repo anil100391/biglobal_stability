@@ -43,6 +43,7 @@ int eigen_solver(ndr_data_t *arg)
   PetscBool      flg,evecs,ishermitian;
   PetscErrorCode ierr;
   PetscMPIInt    rank,size,Istart,Iend;
+  PetscScalar kr,ki;
 
   /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         Load the matrices that define the eigensystem, Ax=kBx
@@ -104,12 +105,20 @@ int eigen_solver(ndr_data_t *arg)
                     Display solution and clean up
      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-  ierr = EPSPrintSolution(eps,NULL);CHKERRQ(ierr);
+//  ierr = EPSPrintSolution(eps,NULL);CHKERRQ(ierr);
   /*
      Save eigenvectors, if requested
   */
   ierr = PetscOptionsGetString(NULL,"-evecs",filename,PETSC_MAX_PATH_LEN,&evecs);CHKERRQ(ierr);
   ierr = EPSGetConverged(eps,&nconv);CHKERRQ(ierr);
+
+  for (i=0; i<nconv; i++) {
+    ierr = EPSGetEigenpair(eps,i,&kr,&ki,xr,xi); CHKERRQ(ierr);
+    PetscPrintf(PETSC_COMM_WORLD,"%f\t %f\n",PetscRealPart(kr),PetscImaginaryPart(kr));
+  }
+    
+
+
   if (nconv>0 && evecs) {
     ierr = PetscViewerASCIIOpen(PETSC_COMM_WORLD,filename,&viewer);
     //ierr = PetscViewerBinaryOpen(PETSC_COMM_WORLD,filename,FILE_MODE_WRITE,&viewer);CHKERRQ(ierr);

@@ -1,6 +1,6 @@
 CFLAGs	   = 
 FFLAGS     = 
-HOME       = /home/anil/biglobal/src
+HOME       = /home/nebula/Dropbox/ME_project/biglobal/src
 CPPFLAGS   = -I$(HOME)/include
 FPPFLAGS   =
 CLEANFILES = main
