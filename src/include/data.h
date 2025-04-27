@@ -1,12 +1,11 @@
+#ifndef _BIGLOBAL_DATA_H_
+#define _BIGLOBAL_DATA_H_
 /*
  *  This file contains definition of data structures and function prototypes
  *  for biglobal stability of viscous flows.
  */
 
 #include <petscksp.h>
-#ifndef DATA_H
-#define DATA_H
-#endif
 
 /*
  *  Description:
@@ -97,7 +96,6 @@ typedef struct ndr_data_s {
  *  correct function returns 0 otherwise a non zero value.
  *  
  */
-int (*grid_gen)(ndr_data_t *);
 int cheb_grid(ndr_data_t *);
 
 /*
@@ -115,7 +113,6 @@ int cheb_grid(ndr_data_t *);
 
 
 
-int (*diffr_mat)(ndr_data_t *);
 int cheb_diffr_mat(ndr_data_t *);
 
 void get_trnfm_der(int, int, co_trnfm_t *); 
@@ -138,7 +135,6 @@ void d2dxy(int,int,int,co_trnfm_t *,PetscScalar *);
  *  calculation is done by Petsc matrix vector operations.
  */
 
-int (*ndr)(PetscScalar *, PetscScalar *, ndr_data_t *);
 int helmholtz(PetscScalar *, PetscScalar *, ndr_data_t *);
 int lns_biglobal(int, PetscScalar *, PetscScalar *, ndr_data_t *);
 int set_bc(ndr_data_t *);
@@ -148,3 +144,5 @@ void *vec_alloc(int, int, size_t);
 void free_vec(void *, int, size_t);
 void **mat2_alloc(int,int,int,size_t);
 void free_mat2(void **,int,size_t);
+
+#endif // _BIGLOBAL_DATA_H_

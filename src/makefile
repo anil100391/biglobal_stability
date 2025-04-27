@@ -1,22 +1,22 @@
 CFLAGs	   = 
 FFLAGS     = 
-HOME       = /home/nebula/Dropbox/ME_project/biglobal/src
+HOME       = /home/nebula/code/biglobal/src
 CPPFLAGS   = -I$(HOME)/include
 FPPFLAGS   =
 CLEANFILES = main
 LIBD       = ../lib
 
-include $(SLEPC_DIR)/conf/slepc_common
+include $(SLEPC_DIR)/lib/slepc/conf/slepc_common
 
-main: main.o chkopts
+main: main.o
 	${CLINKER} -o main main.o $(LIBD)/util.o -L$(LIBD)/ -lbiglobal ${SLEPC_EPS_LIB}	
 	rm *.o
 
-test: test.o chkopts
+test: test.o
 	${CLINKER} -o test test.o $(LIBD)/util.o -L$(LIBD)/ -lbiglobal ${SLEPC_EPS_LIB}	
 	rm *.o
 
-all: cheb ndr bc eig ose
+all: cheb ndr bc eig ose util
 	ar q libbiglobal.a *.o
 #	ar q libbiglobal.a fd_grid.o
 
@@ -35,8 +35,12 @@ eig:
 ose:
 	$(PCC) -c ose.c $(CCPPFLAGS) $(PCC_FLAGS)
 
+util:
+	$(PCC) -c memutils/util.c $(CCPPFLAGS) $(PCC_FLAGS)
+
 install:
 	mv libbiglobal.a ../lib/
+	mv util.o ../lib/
 	rm *.o
 
 

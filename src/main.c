@@ -99,14 +99,13 @@ int main(int argc, char **args)
 
 int read_base_flow(ndr_data_t *arg)
 {
-
     int nx=arg->nx, ny=arg->ny;
     int i;
     FILE *f;
     
     /*********************** Read Base Flow from files **********************/
     arg->w = (double *)vec_alloc((nx+1)*(ny+1),0,sizeof(double));
-    f = fopen("w.txt","r");
+    f = fopen("data/w.txt","r");
     if (f==NULL) {
         printf("Error while opening the file.\n");
     }
@@ -118,7 +117,7 @@ int read_base_flow(ndr_data_t *arg)
     fclose(f);
 
     arg->dwdx = (double *)vec_alloc((nx+1)*(ny+1),0,sizeof(double));
-    f = fopen("dwdx.txt","r");
+    f = fopen("data/dwdx.txt","r");
     if (f==NULL) {
         printf("Error while opening the file.\n");
     }
@@ -131,7 +130,7 @@ int read_base_flow(ndr_data_t *arg)
 
 
     arg->dwdy = (double *)vec_alloc((nx+1)*(ny+1),0,sizeof(double));
-    f = fopen("dwdy.txt","r");
+    f = fopen("data/dwdy.txt","r");
     if (f==NULL) {
         printf("Error while opening the file.\n");
     }

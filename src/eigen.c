@@ -33,6 +33,7 @@ static char help[] = "Solves a generalized eigensystem Ax=kBx with matrices pass
 int eigen_solver(ndr_data_t *arg)
 {
   EPS            eps;             /* eigenproblem solver context */
+  KSP            ksp;
   ST             st;
   EPSType        type;
   PetscReal      tol;
@@ -92,7 +93,7 @@ int eigen_solver(ndr_data_t *arg)
   ierr = EPSGetIterationNumber(eps,&its);CHKERRQ(ierr);
   ierr = PetscPrintf(PETSC_COMM_WORLD," Number of iterations of the method: %D\n",its);CHKERRQ(ierr);
   ierr = EPSGetST(eps,&st);CHKERRQ(ierr);
-  ierr = STGetOperationCounters(st,NULL,&lits);CHKERRQ(ierr);
+  ierr = KSPGetTotalIterations(ksp,&lits);CHKERRQ(ierr);
   ierr = PetscPrintf(PETSC_COMM_WORLD," Number of linear iterations of the method: %D\n",lits);CHKERRQ(ierr);
   ierr = EPSGetType(eps,&type);CHKERRQ(ierr);
   ierr = PetscPrintf(PETSC_COMM_WORLD," Solution method: %s\n\n",type);CHKERRQ(ierr);
@@ -109,7 +110,7 @@ int eigen_solver(ndr_data_t *arg)
   /*
      Save eigenvectors, if requested
   */
-  ierr = PetscOptionsGetString(NULL,"-evecs",filename,PETSC_MAX_PATH_LEN,&evecs);CHKERRQ(ierr);
+  ierr = PetscOptionsGetString(NULL, NULL,"-evecs",filename,PETSC_MAX_PATH_LEN,&evecs);CHKERRQ(ierr);
   ierr = EPSGetConverged(eps,&nconv);CHKERRQ(ierr);
 
   for (i=0; i<nconv; i++) {
