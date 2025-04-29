@@ -1,9 +1,9 @@
-#ifndef _UTIL_H
-#define _UTIL_H
-#endif
+#ifndef _BIGLOBAL_UTIL_H_
+#define _BIGLOBAL_UTIL_H_
 
-//#include <stack.h>
-//#include <list.h>
+// -----------------------------------------------------------------------------
+// Helpers for allocating vectors and matrices
+// -----------------------------------------------------------------------------
 void *vec_alloc(int, int, size_t);
 void free_vec(void *, int, size_t);
 void **mat2_alloc(int,int,int,size_t);
@@ -31,7 +31,6 @@ void free_ivec(int *,  int);
 void free_imat(int **,  int);
 void free_imat3d(int ***, int);
 
-//void fprintf_dmat(FILE *,const char *,double **,int ,int ,int ,int );
-//void fprintf_dmat3d(FILE *,const char *,double ***,int,int ,int ,int ,int );
-
 void ***mat3_view_alloc( int , int , int ,int , int , int ,int , size_t);
+
+#endif // _BIGLOBAL_UTIL_H_
