@@ -1,0 +1,1919 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass article
+\begin_preamble
+\usepackage{ifpdf}
+\ifpdf
+
+ % set fonts for nicer pdf view
+ \IfFileExists{lmodern.sty}
+  {\usepackage{lmodern}}{}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 10
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2cm
+\topmargin 3cm
+\rightmargin 2cm
+\bottommargin 2cm
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Biglobal Stability Analysis
+\end_layout
+
+\begin_layout Author
+Anil Kumar Singh
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Discretization of space
+\end_layout
+
+\begin_layout Standard
+We consider 2-d space to bre represented by 
+\begin_inset Formula $x-y$
+\end_inset
+
+ cartesian coordinate system where 
+\begin_inset Formula $\left|x\right|=1$
+\end_inset
+
+ and 
+\family roman
+\series medium
+\shape up
+\size normal
+\emph off
+\bar no
+\strikeout off
+\uuline off
+\uwave off
+\noun off
+\color none
+
+\begin_inset Formula $\left|y\right|=1$
+\end_inset
+
+ represent the boundaries.
+ Let us have 
+\begin_inset Formula $nx$
+\end_inset
+
+ points along 
+\begin_inset Formula $x-$
+\end_inset
+
+axis and ny points along 
+\begin_inset Formula $y-$
+\end_inset
+
+axis.
+ This forms the discretized space.
+ Any physical quantity is represented as 
+\begin_inset Formula $q=q(x,y)$
+\end_inset
+
+.
+ On the discretized space such a quantity will be represented by its value
+ at 
+\begin_inset Formula $m^{th}$
+\end_inset
+
+ point in 
+\begin_inset Formula $x$
+\end_inset
+
+ and 
+\begin_inset Formula $n^{th}$
+\end_inset
+
+ point in 
+\begin_inset Formula $y$
+\end_inset
+
+.
+ i.e.
+ 
+\begin_inset Formula $q_{mn}=q(x_{m},y_{n})$
+\end_inset
+
+ where 
+\begin_inset Formula $m\in\left\{ 0,1,2,...nx\right\} $
+\end_inset
+
+ and 
+\begin_inset Formula $n\in\left\{ 0,1,2,...ny\right\} $
+\end_inset
+
+.
+ The values of 
+\begin_inset Formula $q$
+\end_inset
+
+ on entire grid can be arranged as a vector in orderly fashion as shown
+ below.
+ It is noted that first 
+\begin_inset Formula $ny$
+\end_inset
+
+ entries correspond to first 
+\begin_inset Formula $x$
+\end_inset
+
+ location; next 
+\begin_inset Formula $ny$
+\end_inset
+
+ entries to next 
+\begin_inset Formula $x$
+\end_inset
+
+ location and so on.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+q=\left[\begin{array}{c}
+q_{11}\\
+q_{12}\\
+q_{13}\\
+.\\
+.\\
+.\\
+q_{1(ny+1)}\\
+q_{21}\\
+q_{22}\\
+.\\
+.\\
+.\\
+q_{(nx+1)1}\\
+q_{(nx+1)2}\\
+.\\
+.\\
+.\\
+q_{(nx+1)ny}
+\end{array}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Chebyshev Differentiation Matrices
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+D_{i,j}=\begin{cases}
+\begin{array}{c}
+\frac{2N^{2}+1}{6}\\
+-\frac{y_{j}}{2\sin^{2}\left(\frac{j\pi}{N}\right)}\\
+-\frac{c_{i}}{2c_{j}}\frac{\left(-1\right)^{i+j}}{\sin\left[\frac{\left(i+j\right)\pi}{2N}\right]\sin\left[\frac{\left(i-j\right)\pi}{2N}\right]}\\
+-\frac{2N^{2}+1}{6}
+\end{array} & \begin{array}{c}
+i=j=0\\
+i=j\neq0,N\\
+i\neq j\\
+i=j=N
+\end{array}\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+c_{j}=\begin{cases}
+\begin{array}{c}
+2\\
+1
+\end{array} & \begin{array}{c}
+j=0,N\\
+1\leq j\leq N-1
+\end{array}\end{cases}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Governing Equations (Tensor)
+\end_layout
+
+\begin_layout Standard
+Continuity Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\rho}{\partial t}+\frac{\partial\left(\rho u_{i}\right)}{\partial x_{i}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Momentum Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho\frac{Du_{i}}{Dt}=-\frac{\partial p}{\partial x_{i}}+\rho g_{i}+\mu\frac{\partial}{\partial x_{j}}\left(\frac{\partial u_{i}}{\partial x_{j}}\right)+\left(\mu_{v}+\frac{\mu}{3}\right)\frac{\partial}{\partial x_{i}}\left(\frac{\partial u_{j}}{\partial x_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Energy Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho\frac{De}{Dt}=-p\frac{\partial u_{m}}{\partial x_{m}}+2\mu\left(S_{ij}-\frac{1}{3}\frac{\partial u_{m}}{\partial x_{m}}\delta_{ij}\right)^{2}+\mu_{v}\left(\frac{\partial u_{j}}{\partial x_{j}}\right)^{2}+\frac{\partial}{\partial x_{j}}\left(K\frac{\partial T}{\partial x_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S_{ij}=\frac{1}{2}\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Stokes' Assumption
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\mu_{v}=\lambda+\frac{2}{3}\mu=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hence momentum and energy equations are as follows
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho\frac{Du_{i}}{Dt}=-\frac{\partial p}{\partial x_{i}}+\rho g_{i}+\mu\frac{\partial}{\partial x_{j}}\left(\frac{\partial u_{i}}{\partial x_{j}}\right)+\frac{\mu}{3}\frac{\partial}{\partial x_{i}}\left(\frac{\partial u_{j}}{\partial x_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho\frac{De}{Dt}=-p\frac{\partial u_{m}}{\partial x_{m}}+2\mu\left(S_{ij}-\frac{1}{3}\frac{\partial u_{m}}{\partial x_{m}}\delta_{ij}\right)^{2}+\frac{\partial}{\partial x_{j}}\left(K\frac{\partial T}{\partial x_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider term
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(S_{ij}-\frac{1}{3}\frac{\partial u_{m}}{\partial x_{m}}\delta_{ij}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=S_{ij}S_{ij}+\frac{1}{9}\frac{\partial u_{m}}{\partial x_{m}}\frac{\partial u_{m}}{\partial x_{m}}\delta_{ij}\delta_{ij}-\frac{2}{3}\frac{\partial u_{m}}{\partial x_{m}}S_{ij}\delta_{ij}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=S_{ij}S_{ij}+\frac{1}{3}\frac{\partial u_{m}}{\partial x_{m}}\frac{\partial u_{m}}{\partial x_{m}}-\frac{2}{3}\frac{\partial u_{m}}{\partial x_{m}}S_{ii}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=S_{ij}S_{ij}+\frac{1}{3}\frac{\partial u_{m}}{\partial x_{m}}\frac{\partial u_{m}}{\partial x_{m}}-\frac{2}{3}\frac{\partial u_{m}}{\partial x_{m}}\frac{\partial u_{i}}{\partial x_{i}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=S_{ij}S_{ij}-\frac{1}{3}\left(\frac{\partial u_{m}}{\partial x_{m}}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\frac{1}{2}S_{ij}\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}}\right)-\frac{1}{3}\left(\frac{\partial u_{m}}{\partial x_{m}}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\frac{1}{2}S_{ij}\frac{\partial u_{i}}{\partial x_{j}}+\frac{1}{2}S_{ji}\frac{\partial u_{i}}{\partial x_{j}}-\frac{1}{3}\left(\frac{\partial u_{m}}{\partial x_{m}}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since 
+\begin_inset Formula $S_{ij}$
+\end_inset
+
+ is symmetric tensor
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=S_{ij}\frac{\partial u_{i}}{\partial x_{j}}-\frac{1}{3}\left(\frac{\partial u_{m}}{\partial x_{m}}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\frac{1}{2}\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}}\right)\frac{\partial u_{i}}{\partial x_{j}}-\frac{1}{3}\left(\frac{\partial u_{m}}{\partial x_{m}}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hence energy equation is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho\frac{De}{Dt}=-p\frac{\partial u_{m}}{\partial x_{m}}+2\mu\left[S_{ij}\frac{\partial u_{i}}{\partial x_{j}}-\frac{1}{3}\left(\frac{\partial u_{m}}{\partial x_{m}}\right)^{2}\right]+\frac{\partial}{\partial x_{j}}\left(K\frac{\partial T}{\partial x_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+For a Calorically perfect gas
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho c_{v}\frac{DT}{Dt}=-p\frac{\partial u_{m}}{\partial x_{m}}+2\mu\left[S_{ij}\frac{\partial u_{i}}{\partial x_{j}}-\frac{1}{3}\left(\frac{\partial u_{m}}{\partial x_{m}}\right)^{2}\right]+\frac{\partial}{\partial x_{j}}\left(K\frac{\partial T}{\partial x_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Non dimensional form of governing equations
+\end_layout
+
+\begin_layout Standard
+Let us create non dimension quantities as written below
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{x}_{i}=\frac{x_{i}}{L_{o}},\quad\bar{u}_{i}=\frac{u_{i}}{U_{o}},\quad\bar{t}=\frac{U_{o}t}{L_{o}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}=\frac{\rho}{\rho_{o}},\quad\bar{p}=\frac{p}{\rho_{o}RT_{o}},\quad\bar{T}=\frac{T}{T_{o}},\quad
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using in governing equations
+\end_layout
+
+\begin_layout Standard
+Continuity Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\rho_{o}U_{o}}{L_{o}}\frac{\partial\bar{\rho}}{\partial\bar{t}}+\frac{\rho_{o}U_{o}}{L_{o}}\frac{\partial\left(\bar{\rho}\bar{u}_{i}\right)}{\partial\bar{x}_{i}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\bar{\rho}}{\partial\bar{t}}+\frac{\partial\left(\bar{\rho}\bar{u}_{i}\right)}{\partial\bar{x}_{i}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Momentum Equation (Body forces left out)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho_{o}\bar{\rho}\frac{U_{o}^{2}}{L_{o}}\frac{D\bar{u}_{i}}{D\bar{t}}=-\frac{\rho_{o}RT_{o}}{L_{o}}\frac{\partial\bar{p}}{\partial\bar{x}_{i}}+\frac{\mu U_{o}}{L_{o}^{2}}\frac{\partial}{\partial\bar{x}_{j}}\left(\frac{\partial\bar{u}_{i}}{\partial\bar{x}_{j}}\right)+\frac{\mu}{3}\frac{U_{o}}{L_{o}^{2}}\frac{\partial}{\partial\bar{x}_{i}}\left(\frac{\partial\bar{u}_{j}}{\partial\bar{x}_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}\frac{D\bar{u}_{i}}{D\bar{t}}=-\frac{\gamma RT_{o}}{\gamma U_{o}^{2}}\frac{\partial\bar{p}}{\partial\bar{x}_{i}}+\frac{\mu}{\rho_{o}U_{o}L_{o}}\frac{\partial}{\partial\bar{x}_{j}}\left(\frac{\partial\bar{u}_{i}}{\partial\bar{x}_{j}}\right)+\frac{1}{3}\frac{\mu}{\rho_{o}U_{o}L_{o}}\frac{\partial}{\partial\bar{x}_{i}}\left(\frac{\partial\bar{u}_{j}}{\partial\bar{x}_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Re=\frac{\rho_{o}U_{o}L_{o}}{\mu},\qquad\frac{\gamma RT_{o}}{U_{o}^{2}}=\frac{1}{M_{o}^{2}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hence
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}\frac{D\bar{u}_{i}}{D\bar{t}}=-\frac{1}{\gamma M_{o}^{2}}\frac{\partial\bar{p}}{\partial\bar{x}_{i}}+\frac{1}{Re}\frac{\partial}{\partial\bar{x}_{j}}\left(\frac{\partial\bar{u}_{i}}{\partial\bar{x}_{j}}\right)+\frac{1}{3Re}\frac{\partial}{\partial\bar{x}_{i}}\left(\frac{\partial\bar{u}_{j}}{\partial\bar{x}_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Energy Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho c_{v}\frac{DT}{Dt}=-p\frac{\partial u_{m}}{\partial x_{m}}+2\mu\left[S_{ij}\frac{\partial u_{i}}{\partial x_{j}}-\frac{1}{3}\left(\frac{\partial u_{m}}{\partial x_{m}}\right)^{2}\right]+\frac{\partial}{\partial x_{j}}\left(K\frac{\partial T}{\partial x_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\rho_{o}c_{v}T_{o}U_{o}}{L_{o}}\bar{\rho}\left(\frac{\partial\bar{T}}{\partial\bar{t}}+\bar{u}_{j}\frac{\partial\bar{T}}{\partial\bar{x}_{j}}\right)=-\frac{\rho_{o}RT_{o}U_{o}}{L_{o}}\bar{p}\frac{\partial\bar{u}_{m}}{\partial\bar{x}_{m}}+2\frac{\mu U_{o}^{2}}{L_{o}^{2}}\left[\frac{1}{2}\left(\frac{\partial\bar{u}_{i}}{\partial\bar{x}_{j}}+\frac{\partial\bar{u}_{j}}{\partial\bar{x}_{i}}\right)\frac{\partial\bar{u}_{i}}{\partial\bar{x}_{j}}-\frac{1}{3}\left(\frac{\partial\bar{u}_{m}}{\partial\bar{x}_{m}}\right)^{2}\right]+\frac{T_{o}}{L_{o}^{2}}\frac{\partial}{\partial x_{j}}\left(K\frac{\partial T}{\partial x_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assuming thermal conductivity to be constant and using 
+\begin_inset Formula $c_{v}=\frac{R}{\gamma-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}\left(\frac{\partial\bar{T}}{\partial\bar{t}}+\bar{u}_{j}\frac{\partial\bar{T}}{\partial\bar{x}_{j}}\right)=-\left(\gamma-1\right)\bar{p}\frac{\partial\bar{u}_{m}}{\partial\bar{x}_{m}}+\frac{M_{o}^{2}\gamma\left(\gamma-1\right)}{Re}\left[\left(\frac{\partial\bar{u}_{i}}{\partial\bar{x}_{j}}+\frac{\partial\bar{u}_{j}}{\partial\bar{x}_{i}}\right)\frac{\partial\bar{u}_{i}}{\partial\bar{x}_{j}}-\frac{2}{3}\left(\frac{\partial\bar{u}_{m}}{\partial\bar{x}_{m}}\right)^{2}\right]+\frac{\gamma}{Pr\,.\, Re}\frac{\partial}{\partial x_{j}}\frac{\partial T}{\partial x_{j}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Equation of state
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+p=\rho RT
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho_{o}RT_{o}\bar{p}=\rho_{o}\bar{\rho}RT_{o}\bar{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{p}=\bar{\rho}\bar{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Non dimensional governing equations (Vector)
+\end_layout
+
+\begin_layout Subsection
+Continuity
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\bar{\rho}}{\partial\bar{t}}+\frac{\partial\left(\bar{\rho}\bar{u}\right)}{\partial\bar{x}}+\frac{\partial\left(\bar{\rho}\bar{v}\right)}{\partial\bar{y}}+\frac{\partial\left(\bar{\rho}\bar{w}\right)}{\partial\bar{z}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Momentum
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}\frac{D\bar{u}_{i}}{D\bar{t}}=-\frac{1}{\gamma M_{o}^{2}}\frac{\partial\bar{p}}{\partial\bar{x}_{i}}+\frac{1}{Re}\frac{\partial}{\partial\bar{x}_{j}}\left(\frac{\partial\bar{u}_{i}}{\partial\bar{x}_{j}}\right)+\frac{1}{3Re}\frac{\partial}{\partial\bar{x}_{i}}\left(\frac{\partial\bar{u}_{j}}{\partial\bar{x}_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $x-$
+\end_inset
+
+ momentum
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}\left(\frac{\partial}{\partial\bar{t}}+\bar{u}\frac{\partial}{\partial\bar{x}}+\bar{v}\frac{\partial}{\partial\bar{y}}+\bar{w}\frac{\partial}{\partial\bar{z}}\right)\bar{u}=-\frac{1}{\gamma M_{o}^{2}}\frac{\partial\bar{p}}{\partial\bar{x}}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial\bar{x}^{2}}+\frac{\partial^{2}}{\partial\bar{y}^{2}}+\frac{\partial^{2}}{\partial\bar{z}^{2}}\right]\bar{u}+\frac{1}{3Re}\left[\frac{\partial^{2}\bar{u}}{\partial\bar{x}^{2}}+\frac{\partial^{2}\bar{v}}{\partial\bar{x}\partial\bar{y}}+\frac{\partial^{2}\bar{w}}{\partial\bar{x}\partial\bar{z}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $y-$
+\end_inset
+
+ momentum
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}\left(\frac{\partial}{\partial\bar{t}}+\bar{u}\frac{\partial}{\partial\bar{x}}+\bar{v}\frac{\partial}{\partial\bar{y}}+\bar{w}\frac{\partial}{\partial\bar{z}}\right)\bar{v}=-\frac{1}{\gamma M_{o}^{2}}\frac{\partial\bar{p}}{\partial\bar{y}}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial\bar{x}^{2}}+\frac{\partial^{2}}{\partial\bar{y}^{2}}+\frac{\partial^{2}}{\partial\bar{z}^{2}}\right]\bar{v}+\frac{1}{3Re}\left[\frac{\partial^{2}\bar{u}}{\partial\bar{x}\partial\bar{y}}+\frac{\partial^{2}\bar{v}}{\partial\bar{y}^{2}}+\frac{\partial^{2}\bar{w}}{\partial\bar{y}\partial\bar{z}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $z-$
+\end_inset
+
+ momentum
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}\left(\frac{\partial}{\partial\bar{t}}+\bar{u}\frac{\partial}{\partial\bar{x}}+\bar{v}\frac{\partial}{\partial\bar{y}}+\bar{w}\frac{\partial}{\partial\bar{z}}\right)\bar{w}=-\frac{1}{\gamma M_{o}^{2}}\frac{\partial\bar{p}}{\partial\bar{z}}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial\bar{x}^{2}}+\frac{\partial^{2}}{\partial\bar{y}^{2}}+\frac{\partial^{2}}{\partial\bar{z}^{2}}\right]\bar{w}+\frac{1}{3Re}\left[\frac{\partial^{2}\bar{u}}{\partial\bar{x}\partial\bar{z}}+\frac{\partial^{2}\bar{v}}{\partial\bar{y}\partial\bar{z}}+\frac{\partial^{2}\bar{w}}{\partial\bar{z}^{2}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Energy
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}\left(\frac{\partial\bar{T}}{\partial\bar{t}}+\bar{u}_{j}\frac{\partial\bar{T}}{\partial\bar{x}_{j}}\right)=-\left(\gamma-1\right)\bar{p}\frac{\partial\bar{u}_{m}}{\partial\bar{x}_{m}}+\frac{M_{o}^{2}\gamma\left(\gamma-1\right)}{Re}\left[\left(\frac{\partial\bar{u}_{i}}{\partial\bar{x}_{j}}+\frac{\partial\bar{u}_{j}}{\partial\bar{x}_{i}}\right)\frac{\partial\bar{u}_{i}}{\partial\bar{x}_{j}}-\frac{2}{3}\left(\frac{\partial\bar{u}_{m}}{\partial\bar{x}_{m}}\right)^{2}\right]+\frac{\gamma}{Pr\,.\, Re}\frac{\partial}{\partial x_{j}}\frac{\partial T}{\partial x_{j}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}\left(\frac{\partial}{\partial\bar{t}}+\bar{u}\frac{\partial}{\partial\bar{x}}+\bar{v}\frac{\partial}{\partial\bar{y}}+\bar{w}\frac{\partial}{\partial\bar{z}}\right)\bar{T}=-\left(\gamma-1\right)\bar{p}\left(\frac{\partial\bar{u}}{\partial\bar{x}}+\frac{\partial\bar{v}}{\partial\bar{y}}+\frac{\partial\bar{w}}{\partial\bar{z}}\right)+\frac{M_{o}^{2}\gamma\left(\gamma-1\right)}{Re}\textrm{Term}+\frac{\gamma}{Pr\,.\, Re}\left[\frac{\partial^{2}\bar{T}}{\partial\bar{x}^{2}}+\frac{\partial^{2}\bar{T}}{\partial\bar{y}^{2}}+\frac{\partial^{2}\bar{T}}{\partial\bar{z}^{2}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider the term
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\textrm{Term}=\left(\frac{\partial\bar{u}_{i}}{\partial\bar{x}_{j}}+\frac{\partial\bar{u}_{j}}{\partial\bar{x}_{i}}\right)\frac{\partial\bar{u}_{i}}{\partial\bar{x}_{j}}-\frac{2}{3}\left(\frac{\partial\bar{u}_{m}}{\partial\bar{x}_{m}}\right)^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\frac{4}{3}\left(\frac{\partial\bar{u}}{\partial\bar{x}}\frac{\partial\bar{u}}{\partial\bar{x}}+\frac{\partial\bar{v}}{\partial\bar{y}}\frac{\partial\bar{v}}{\partial\bar{y}}+\frac{\partial\bar{w}}{\partial\bar{z}}\frac{\partial\bar{w}}{\partial\bar{z}}\right)+\left(\frac{\partial\bar{u}}{\partial\bar{y}}\right)^{2}+\left(\frac{\partial\bar{u}}{\partial\bar{z}}\right)^{2}+\left(\frac{\partial\bar{v}}{\partial\bar{x}}\right)^{2}+\left(\frac{\partial\bar{v}}{\partial\bar{z}}\right)^{2}+\left(\frac{\partial\bar{w}}{\partial\bar{x}}\right)^{2}+\left(\frac{\partial\bar{w}}{\partial\bar{y}}\right)^{2}\\
++\frac{\partial\bar{v}}{\partial\bar{x}}\frac{\partial\bar{u}}{\partial\bar{y}}+\frac{\partial\bar{w}}{\partial\bar{x}}\frac{\partial\bar{u}}{\partial\bar{z}}+\frac{\partial\bar{u}}{\partial\bar{y}}\frac{\partial\bar{v}}{\partial\bar{x}}+\frac{\partial\bar{w}}{\partial\bar{y}}\frac{\partial\bar{v}}{\partial\bar{z}}+\frac{\partial\bar{u}}{\partial\bar{z}}\frac{\partial\bar{w}}{\partial\bar{x}}+\frac{\partial\bar{v}}{\partial\bar{z}}\frac{\partial\bar{w}}{\partial\bar{y}}\\
+-\frac{4}{3}\left[\frac{\partial\bar{u}}{\partial\bar{x}}\frac{\partial\bar{v}}{\partial\bar{y}}+\frac{\partial\bar{u}}{\partial\bar{x}}\frac{\partial\bar{w}}{\partial\bar{z}}+\frac{\partial\bar{v}}{\partial\bar{y}}\frac{\partial\bar{w}}{\partial\bar{z}}\right]
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Governing Equation (low mach no.
+ limit)
+\end_layout
+
+\begin_layout Standard
+We expand flow parameters as a function of asymptotic parameter 
+\begin_inset Formula $M_{o}$
+\end_inset
+
+ i.e.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{u}(x,y,t)=\bar{u}_{o}+M_{o}\bar{u}_{1}+M_{o}^{2}\bar{u}_{2}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{v}(x,y,t)=\bar{v}_{o}+M_{o}\bar{v}_{1}+M_{o}^{2}\bar{v}_{2}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{w}(x,y,t)=\bar{w}_{o}+M_{o}\bar{w}_{1}+M_{o}^{2}\bar{w}_{2}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{p}(x,y,t)=\bar{p}_{o}+M_{o}\bar{p}_{1}+M_{o}^{2}\bar{p}_{2}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}(x,y,t)=\bar{\rho}_{o}+M_{o}\bar{\rho}_{1}+M_{o}^{2}\bar{\rho}_{2}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{T}(x,y,t)=\bar{T}_{o}+M_{o}\bar{T}_{1}+M_{o}^{2}\bar{T}_{2}+...
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Continuity
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\bar{\rho}}{\partial\bar{t}}+\frac{\partial\left(\bar{\rho}\bar{u}\right)}{\partial\bar{x}}+\frac{\partial\left(\bar{\rho}\bar{v}\right)}{\partial\bar{y}}+\frac{\partial\left(\bar{\rho}\bar{w}\right)}{\partial\bar{z}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\bar{\rho}}{\partial\bar{t}}+\bar{u}\frac{\partial\bar{\rho}}{\partial\bar{x}}+\bar{v}\frac{\partial\bar{\rho}}{\partial\bar{y}}+\bar{w}\frac{\partial\bar{\rho}}{\partial\bar{z}}+\bar{\rho}\left(\frac{\partial\bar{u}}{\partial\bar{x}}+\frac{\partial\bar{v}}{\partial\bar{y}}+\frac{\partial\bar{w}}{\partial\bar{z}}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\bar{\rho}}{\partial\bar{t}}+\bar{u}\frac{\partial\bar{\rho}}{\partial\bar{x}}+\bar{v}\frac{\partial\bar{\rho}}{\partial\bar{y}}+\bar{w}\frac{\partial\bar{\rho}}{\partial\bar{z}}+\bar{\rho}\left(\frac{\partial\bar{u}}{\partial\bar{x}}+\frac{\partial\bar{v}}{\partial\bar{y}}+\frac{\partial\bar{w}}{\partial\bar{z}}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Collecting the First order terms 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\bar{\rho}_{o}}{\partial\bar{t}}+\bar{u}_{o}\frac{\partial\bar{\rho}_{o}}{\partial\bar{x}}+\bar{v}_{o}\frac{\partial\bar{\rho}_{o}}{\partial\bar{y}}+\bar{w}_{o}\frac{\partial\bar{\rho}_{o}}{\partial\bar{z}}+\bar{\rho}_{o}\left(\frac{\partial\bar{u}_{o}}{\partial\bar{x}}+\frac{\partial\bar{v}_{o}}{\partial\bar{y}}+\frac{\partial\bar{w}_{o}}{\partial\bar{z}}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Momentum
+\end_layout
+
+\begin_layout Subsubsection
+x-Momentum Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}\left(\frac{\partial}{\partial\bar{t}}+\bar{u}\frac{\partial}{\partial\bar{x}}+\bar{v}\frac{\partial}{\partial\bar{y}}+\bar{w}\frac{\partial}{\partial\bar{z}}\right)\bar{u}=-\frac{1}{\gamma M_{o}^{2}}\frac{\partial\bar{p}}{\partial\bar{x}}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial\bar{x}^{2}}+\frac{\partial^{2}}{\partial\bar{y}^{2}}+\frac{\partial^{2}}{\partial\bar{z}^{2}}\right]\bar{u}+\frac{1}{3Re}\left[\frac{\partial^{2}\bar{u}}{\partial\bar{x}^{2}}+\frac{\partial^{2}\bar{v}}{\partial\bar{x}\partial\bar{y}}+\frac{\partial^{2}\bar{w}}{\partial\bar{x}\partial\bar{z}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Collecting highest order terms (i.e.
+ coefficients of 
+\begin_inset Formula $M_{o}^{-2}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\bar{p}_{o}}{\partial\bar{x}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Collecting coefficients of 
+\begin_inset Formula $M_{o}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\bar{p}_{1}}{\partial\bar{x}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Collecting coefficients of 
+\begin_inset Formula $M_{o}^{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}_{o}\left(\frac{\partial}{\partial\bar{t}}+\bar{u}_{o}\frac{\partial}{\partial\bar{x}}+\bar{v}_{o}\frac{\partial}{\partial\bar{y}}+\bar{w}_{o}\frac{\partial}{\partial\bar{z}}\right)\bar{u}_{o}=-\frac{1}{\gamma}\frac{\partial\bar{p}_{2}}{\partial\bar{x}}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial\bar{x}^{2}}+\frac{\partial^{2}}{\partial\bar{y}^{2}}+\frac{\partial^{2}}{\partial\bar{z}^{2}}\right]\bar{u}_{o}+\frac{1}{3Re}\left[\frac{\partial^{2}\bar{u}_{o}}{\partial\bar{x}^{2}}+\frac{\partial^{2}\bar{v}_{o}}{\partial\bar{x}\partial\bar{y}}+\frac{\partial^{2}\bar{w}_{o}}{\partial\bar{x}\partial\bar{z}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+y-Momentum Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}\left(\frac{\partial}{\partial\bar{t}}+\bar{u}\frac{\partial}{\partial\bar{x}}+\bar{v}\frac{\partial}{\partial\bar{y}}+\bar{w}\frac{\partial}{\partial\bar{z}}\right)\bar{v}=-\frac{1}{\gamma M_{o}^{2}}\frac{\partial\bar{p}}{\partial\bar{y}}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial\bar{x}^{2}}+\frac{\partial^{2}}{\partial\bar{y}^{2}}+\frac{\partial^{2}}{\partial\bar{z}^{2}}\right]\bar{v}+\frac{1}{3Re}\left[\frac{\partial^{2}\bar{u}}{\partial\bar{x}\partial\bar{y}}+\frac{\partial^{2}\bar{v}}{\partial\bar{y}^{2}}+\frac{\partial^{2}\bar{w}}{\partial\bar{y}\partial\bar{z}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Collecting highest order terms (i.e.
+ coefficients of 
+\begin_inset Formula $M_{o}^{-2}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\bar{p}_{o}}{\partial\bar{y}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Collecting coefficients of 
+\begin_inset Formula $M_{o}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\bar{p}_{1}}{\partial\bar{y}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Collecting coefficients of 
+\begin_inset Formula $M_{o}^{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}_{o}\left(\frac{\partial}{\partial\bar{t}}+\bar{u}_{o}\frac{\partial}{\partial\bar{x}}+\bar{v}_{o}\frac{\partial}{\partial\bar{y}}+\bar{w}_{o}\frac{\partial}{\partial\bar{z}}\right)\bar{v}_{o}=-\frac{1}{\gamma}\frac{\partial\bar{p}_{2}}{\partial\bar{y}}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial\bar{x}^{2}}+\frac{\partial^{2}}{\partial\bar{y}^{2}}+\frac{\partial^{2}}{\partial\bar{z}^{2}}\right]\bar{v}_{o}+\frac{1}{3Re}\left[\frac{\partial^{2}\bar{u}_{o}}{\partial\bar{x}\partial\bar{y}}+\frac{\partial^{2}\bar{v}_{o}}{\partial\bar{y}^{2}}+\frac{\partial^{2}\bar{w}_{o}}{\partial\bar{y}\partial\bar{z}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection
+z-Momentum Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}\left(\frac{\partial}{\partial\bar{t}}+\bar{u}\frac{\partial}{\partial\bar{x}}+\bar{v}\frac{\partial}{\partial\bar{y}}+\bar{w}\frac{\partial}{\partial\bar{z}}\right)\bar{w}=-\frac{1}{\gamma M_{o}^{2}}\frac{\partial\bar{p}}{\partial\bar{z}}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial\bar{x}^{2}}+\frac{\partial^{2}}{\partial\bar{y}^{2}}+\frac{\partial^{2}}{\partial\bar{z}^{2}}\right]\bar{w}+\frac{1}{3Re}\left[\frac{\partial^{2}\bar{u}}{\partial\bar{x}\partial\bar{z}}+\frac{\partial^{2}\bar{v}}{\partial\bar{y}\partial\bar{z}}+\frac{\partial^{2}\bar{w}}{\partial\bar{z}^{2}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Collecting highest order terms (i.e.
+ coefficients of 
+\begin_inset Formula $M_{o}^{-2}$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\bar{p}_{o}}{\partial\bar{z}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Collecting coefficients of 
+\begin_inset Formula $M_{o}^{-1}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\bar{p}_{1}}{\partial\bar{z}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Collecting coefficients of 
+\begin_inset Formula $M_{o}^{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}_{o}\left(\frac{\partial}{\partial\bar{t}}+\bar{u}_{o}\frac{\partial}{\partial\bar{x}}+\bar{v}_{o}\frac{\partial}{\partial\bar{y}}+\bar{w}_{o}\frac{\partial}{\partial\bar{z}}\right)\bar{w}_{o}=-\frac{1}{\gamma}\frac{\partial\bar{p}_{2}}{\partial\bar{z}}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial\bar{x}^{2}}+\frac{\partial^{2}}{\partial\bar{y}^{2}}+\frac{\partial^{2}}{\partial\bar{z}^{2}}\right]\bar{w}_{o}+\frac{1}{3Re}\left[\frac{\partial^{2}\bar{u}_{o}}{\partial\bar{x}\partial\bar{z}}+\frac{\partial^{2}\bar{v}_{o}}{\partial\bar{y}\partial\bar{z}}+\frac{\partial^{2}\bar{w}_{o}}{\partial\bar{z}^{2}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+From above equations, it is concluded that 
+\begin_inset Formula $\bar{p}_{o}$
+\end_inset
+
+ and 
+\begin_inset Formula $\bar{p}_{1}$
+\end_inset
+
+ are constants.
+\end_layout
+
+\begin_layout Subsection
+Energy
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}\left(\frac{\partial}{\partial\bar{t}}+\bar{u}\frac{\partial}{\partial\bar{x}}+\bar{v}\frac{\partial}{\partial\bar{y}}+\bar{w}\frac{\partial}{\partial\bar{z}}\right)\bar{T}=-\left(\gamma-1\right)\bar{p}\left(\frac{\partial\bar{u}}{\partial\bar{x}}+\frac{\partial\bar{v}}{\partial\bar{y}}+\frac{\partial\bar{w}}{\partial\bar{z}}\right)+\frac{M_{o}^{2}\gamma\left(\gamma-1\right)}{Re}\textrm{Term}+\frac{\gamma}{Pr\,.\, Re}\left[\frac{\partial^{2}\bar{T}}{\partial\bar{x}^{2}}+\frac{\partial^{2}\bar{T}}{\partial\bar{y}^{2}}+\frac{\partial^{2}\bar{T}}{\partial\bar{z}^{2}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Collecting the highest order terms i.e.
+ coefficients of 
+\begin_inset Formula $M_{o}^{0}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}_{o}\left(\frac{\partial}{\partial\bar{t}}+\bar{u}_{o}\frac{\partial}{\partial\bar{x}}+\bar{v}_{o}\frac{\partial}{\partial\bar{y}}+\bar{w}_{o}\frac{\partial}{\partial\bar{z}}\right)\bar{T}_{o}=-\left(\gamma-1\right)\bar{p}_{o}\left(\frac{\partial\bar{u}_{o}}{\partial\bar{x}}+\frac{\partial\bar{v}_{o}}{\partial\bar{y}}+\frac{\partial\bar{w}_{o}}{\partial\bar{z}}\right)+\frac{\gamma}{Pr\,.\, Re}\left[\frac{\partial^{2}}{\partial\bar{x}^{2}}+\frac{\partial^{2}}{\partial\bar{y}^{2}}+\frac{\partial^{2}}{\partial\bar{z}^{2}}\right]\bar{T}_{o}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Equation of State
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{p}=\bar{\rho}\bar{T}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Collecting the highest order terms
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{p}_{o}=\bar{\rho}_{o}\bar{T}_{o}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Substituting 
+\begin_inset Formula $\bar{T}_{o}$
+\end_inset
+
+ from above equation in energy equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}_{o}\left(\frac{\partial\bar{T}_{o}}{\partial\bar{t}}+\bar{u}_{o}\frac{\partial\bar{T}_{o}}{\partial\bar{x}}+\bar{v}_{o}\frac{\partial\bar{T}_{o}}{\partial\bar{y}}+\bar{w}_{o}\frac{\partial\bar{T}_{o}}{\partial\bar{z}}\right)=-\left(\gamma-1\right)\bar{p}_{o}\left(\frac{\partial\bar{u}_{o}}{\partial\bar{x}}+\frac{\partial\bar{v}_{o}}{\partial\bar{y}}+\frac{\partial\bar{w}_{o}}{\partial\bar{z}}\right)+\frac{\gamma}{Pr\,.\, Re}\left[\frac{\partial^{2}\bar{T}_{o}}{\partial\bar{x}^{2}}+\frac{\partial^{2}\bar{T}_{o}}{\partial\bar{y}^{2}}+\frac{\partial^{2}\bar{T}_{o}}{\partial\bar{z}^{2}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider LHS
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\textrm{LHS}=\bar{\rho}_{o}\left(\frac{\partial\bar{T}_{o}}{\partial\bar{t}}+\bar{u}_{o}\frac{\partial\bar{T}_{o}}{\partial\bar{x}}+\bar{v}_{o}\frac{\partial\bar{T}_{o}}{\partial\bar{y}}+\bar{w}_{o}\frac{\partial\bar{T}_{o}}{\partial\bar{z}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\bar{\rho}_{o}\left(\frac{\partial\left(\frac{\bar{p}_{o}}{\bar{\rho}_{o}}\right)}{\partial\bar{t}}+\bar{u}_{o}\frac{\partial\left(\frac{\bar{p}_{o}}{\bar{\rho}_{o}}\right)}{\partial\bar{x}}+\bar{v}_{o}\frac{\partial\left(\frac{\bar{p}_{o}}{\bar{\rho}_{o}}\right)}{\partial\bar{y}}+\bar{w}_{o}\frac{\partial\left(\frac{\bar{p}_{o}}{\bar{\rho}_{o}}\right)}{\partial\bar{z}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\left(\frac{\partial\bar{p}_{o}}{\partial\bar{t}}-\frac{\bar{p}_{o}}{\bar{\rho}_{o}}\frac{\partial\bar{\rho}_{o}}{\partial\bar{t}}-\frac{\bar{u}_{o}\bar{p}_{o}}{\bar{\rho}_{o}}\frac{\partial\bar{\rho}_{o}}{\partial\bar{x}}-\frac{\bar{v}_{o}\bar{p}_{o}}{\bar{\rho}_{o}}\frac{\partial\bar{\rho}_{o}}{\partial\bar{y}}-\frac{\bar{w}_{o}\bar{p}_{o}}{\bar{\rho}_{o}}\frac{\partial\bar{\rho}_{o}}{\partial\bar{z}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assuming that 
+\begin_inset Formula $\bar{p}_{o}$
+\end_inset
+
+ is not a function of time LHS is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\left(-\frac{\bar{p}_{o}}{\bar{\rho}_{o}}\frac{\partial\bar{\rho}_{o}}{\partial\bar{t}}-\frac{\bar{u}_{o}\bar{p}_{o}}{\bar{\rho}_{o}}\frac{\partial\bar{\rho}_{o}}{\partial\bar{x}}-\frac{\bar{v}_{o}\bar{p}_{o}}{\bar{\rho}_{o}}\frac{\partial\bar{\rho}_{o}}{\partial\bar{y}}-\frac{\bar{w}_{o}\bar{p}_{o}}{\bar{\rho}_{o}}\frac{\partial\bar{\rho}_{o}}{\partial\bar{z}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Consider last term of RHS
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\textrm{RHS}=\frac{\gamma}{Pr\,.\, Re}\left[\frac{\partial^{2}\bar{T}_{o}}{\partial\bar{x}^{2}}+\frac{\partial^{2}\bar{T}_{o}}{\partial\bar{y}^{2}}+\frac{\partial^{2}\bar{T}_{o}}{\partial\bar{z}^{2}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\frac{\gamma}{Pr\,.\, Re}\left[\bar{p}_{o}\frac{\partial}{\partial\bar{x}}\left(-\frac{1}{\bar{\rho}_{o}^{2}}\frac{\partial\bar{\rho}_{o}}{\partial\bar{x}}\right)+\frac{\partial^{2}\left(\frac{\bar{p}_{o}}{\bar{\rho}_{o}}\right)}{\partial\bar{y}^{2}}+\frac{\partial^{2}\left(\frac{\bar{p}_{o}}{\bar{\rho}_{o}}\right)}{\partial\bar{z}^{2}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\frac{\gamma}{Pr\,.\, Re}\left[\bar{p}_{o}\left(-\frac{1}{\bar{\rho}_{o}^{2}}\frac{\partial^{2}\bar{\rho}_{o}}{\partial\bar{x}^{2}}+\frac{2}{\bar{\rho}_{o}^{3}}\left(\frac{\partial\bar{\rho}_{o}}{\partial\bar{x}}\right)^{2}\right)+\frac{\partial^{2}\left(\frac{\bar{p}_{o}}{\bar{\rho}_{o}}\right)}{\partial\bar{y}^{2}}+\frac{\partial^{2}\left(\frac{\bar{p}_{o}}{\bar{\rho}_{o}}\right)}{\partial\bar{z}^{2}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hence energy equation is
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\bar{\rho}_{o}^{2}\left(\frac{\partial\bar{\rho}_{o}}{\partial\bar{t}}+\bar{u}_{o}\frac{\partial\bar{\rho}_{o}}{\partial\bar{x}}+\bar{v}_{o}\frac{\partial\bar{\rho}_{o}}{\partial\bar{y}}+\bar{w}_{o}\frac{\partial\bar{\rho}_{o}}{\partial\bar{z}}\right) & = & \left(\gamma-1\right)\bar{\rho}_{o}^{3}\left(\frac{\partial\bar{u}_{o}}{\partial\bar{x}}+\frac{\partial\bar{v}_{o}}{\partial\bar{y}}+\frac{\partial\bar{w}_{o}}{\partial\bar{z}}\right)\\
+ &  & -\frac{\gamma}{Pr\,.\, Re}\left[2\left\{ \left(\frac{\partial\bar{\rho}_{o}}{\partial\bar{x}}\right)^{2}+\left(\frac{\partial\bar{\rho}_{o}}{\partial\bar{y}}\right)^{2}+\left(\frac{\partial\bar{\rho}_{o}}{\partial\bar{z}}\right)^{2}\right\} -\bar{\rho}_{o}\left\{ \frac{\partial^{2}\bar{\rho}_{o}}{\partial\bar{x}^{2}}+\frac{\partial^{2}\bar{\rho}_{o}}{\partial\bar{y}^{2}}+\frac{\partial^{2}\bar{\rho}_{o}}{\partial\bar{z}^{2}}\right\} \right]
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Biglobal Stability Equations
+\end_layout
+
+\begin_layout Standard
+We now drop superscripts, subscripts and bars from variables so that equations
+ look easier to read.
+ (i.e.
+ we replace 
+\begin_inset Formula $\bar{q}_{o}$
+\end_inset
+
+ by 
+\begin_inset Formula $q$
+\end_inset
+
+ ; 
+\begin_inset Formula $\bar{p}_{2}$
+\end_inset
+
+ by 
+\begin_inset Formula $p$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Flow variables are written as vector 
+\begin_inset Formula $q=\left[u\quad v\quad w\quad\rho\quad p\right]$
+\end_inset
+
+.Base flow variables 
+\begin_inset Formula $\bar{q}(x,y)$
+\end_inset
+
+ are functions of two spatial coordinates only.
+ Instantaneous flow variables are function of three spatial directions and
+ time i.e.
+ 
+\begin_inset Formula $q=q(x,y,z,t)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now we write instantaneous quantities as
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+q(x,y,z,t)=\bar{q}(x,y)+q'(x,y,z,t)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $q'$
+\end_inset
+
+ is perturbation.
+ Perturbations are assumed to be of form 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+q'(x,y,z,t)=\tilde{q}(x,y)\exp\left[i\left(\beta z-\omega t\right)\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Continuity Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\rho}{\partial t}+u\frac{\partial\rho}{\partial x}+v\frac{\partial\rho}{\partial y}+w\frac{\partial\rho}{\partial z}+\rho\left(\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Subtracting the base flow equation from instantaneous flow
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\rho'}{\partial t}+u'\frac{\partial\bar{\rho}}{\partial x}+v'\frac{\partial\bar{\rho}}{\partial y}+w'\frac{\partial\bar{\rho}}{\partial z}+\bar{u}\frac{\partial\rho'}{\partial x}+\bar{v}\frac{\partial\rho'}{\partial y}+\bar{w}\frac{\partial\rho'}{\partial z}+\bar{\rho}\left(\frac{\partial u'}{\partial x}+\frac{\partial v'}{\partial y}+\frac{\partial w'}{\partial z}\right)+\rho'\left(\frac{\partial\bar{u}}{\partial x}+\frac{\partial\bar{v}}{\partial y}+\frac{\partial\bar{w}}{\partial z}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-i\omega\tilde{\rho}+\tilde{u}\frac{\partial\bar{\rho}}{\partial x}+\tilde{v}\frac{\partial\bar{\rho}}{\partial y}+\bar{u}\frac{\partial\tilde{\rho}}{\partial x}+\bar{v}\frac{\partial\tilde{\rho}}{\partial y}+i\beta\bar{w}\tilde{\rho}+\bar{\rho}\left(\frac{\partial\tilde{u}}{\partial x}+\frac{\partial\tilde{v}}{\partial y}+i\beta\tilde{w}\right)+\tilde{\rho}\left(\frac{\partial\bar{u}}{\partial x}+\frac{\partial\bar{v}}{\partial y}\right)=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\left(-i\omega+\bar{u}\mathcal{D}_{x}+\bar{v}\mathcal{D}_{y}+i\beta\bar{w}+\bar{u}_{x}+\bar{v}_{y}\right)\tilde{\rho}+\left(\bar{\rho}_{x}+\bar{\rho}\mathcal{D}_{x}\right)\tilde{u}+\left(\bar{\rho}_{y}+\bar{\rho}\mathcal{D}_{y}\right)\tilde{v}+i\beta\bar{\rho}\tilde{w}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+x-momentum Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho\left(\frac{\partial}{\partial t}+u\frac{\partial}{\partial x}+v\frac{\partial}{\partial y}+w\frac{\partial}{\partial z}\right)u=-\frac{1}{\gamma}\frac{\partial p}{\partial x}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}+\frac{\partial^{2}}{\partial z^{2}}\right]u+\frac{1}{3Re}\left[\frac{\partial^{2}u}{\partial x^{2}}+\frac{\partial^{2}v}{\partial x\partial y}+\frac{\partial^{2}w}{\partial x\partial z}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Subtracting the base flow equation from instantaneous flow
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\rho'\frac{\partial\bar{u}}{\partial t}+\bar{\rho}\frac{\partial u'}{\partial t}+\bar{\rho}\bar{u}\frac{\partial u'}{\partial x}+\bar{\rho}u'\frac{\partial\bar{u}}{\partial x}+\rho'\bar{u}\frac{\partial\bar{u}}{\partial x}+\bar{\rho}\bar{v}\frac{\partial u'}{\partial y}+\bar{\rho}v'\frac{\partial\bar{u}}{\partial y}+\rho'\bar{v}\frac{\partial\bar{u}}{\partial y}+\bar{\rho}\bar{w}\frac{\partial u'}{\partial z}+\bar{\rho}w'\frac{\partial\bar{u}}{\partial z}+\rho'\bar{w}\frac{\partial\bar{u}}{\partial z}\\
+=-\frac{1}{\gamma}\frac{\partial p'}{\partial x}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}+\frac{\partial^{2}}{\partial z^{2}}\right]u'+\frac{1}{3Re}\left[\frac{\partial^{2}u'}{\partial x^{2}}+\frac{\partial^{2}v'}{\partial x\partial y}+\frac{\partial^{2}w'}{\partial x\partial z}\right]
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+-i\omega\tilde{u}\bar{\rho}+\bar{\rho}\bar{u}\frac{\partial\tilde{u}}{\partial x}+\bar{\rho}\tilde{u}\frac{\partial\bar{u}}{\partial x}+\tilde{\rho}\bar{u}\frac{\partial\bar{u}}{\partial x}+\bar{\rho}\bar{v}\frac{\partial\tilde{u}}{\partial y}+\bar{\rho}\tilde{v}\frac{\partial\bar{u}}{\partial y}+\tilde{\rho}\bar{v}\frac{\partial\bar{u}}{\partial y}+i\beta\bar{\rho}\bar{w}\tilde{u}\\
+=-\frac{1}{\gamma}\frac{\partial\tilde{p}}{\partial x}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}-\beta^{2}\right]\tilde{u}+\frac{1}{3Re}\left[\frac{\partial^{2}\tilde{u}}{\partial x^{2}}+\frac{\partial^{2}\tilde{v}}{\partial x\partial y}+i\beta\frac{\partial\tilde{w}}{\partial x}\right]
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\tilde{\rho}\bar{u}\frac{\partial\bar{u}}{\partial x}+\tilde{\rho}\bar{v}\frac{\partial\bar{u}}{\partial y}-i\omega\tilde{u}\bar{\rho}+\bar{\rho}\bar{u}\frac{\partial\tilde{u}}{\partial x}+\bar{\rho}\tilde{u}\frac{\partial\bar{u}}{\partial x}+\bar{\rho}\bar{v}\frac{\partial\tilde{u}}{\partial y}+i\beta\bar{\rho}\bar{w}\tilde{u}+\bar{\rho}\tilde{v}\frac{\partial\bar{u}}{\partial y}\\
+-\frac{1}{Re}\left[\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}-\beta^{2}\right]\tilde{u}-\frac{1}{3Re}\left[\frac{\partial^{2}\tilde{u}}{\partial x^{2}}+\frac{\partial^{2}\tilde{v}}{\partial x\partial y}+i\beta\frac{\partial\tilde{w}}{\partial x}\right]+\frac{1}{\gamma}\frac{\partial\tilde{p}}{\partial x}=0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+y-momentum Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho\left(\frac{\partial}{\partial t}+u\frac{\partial}{\partial x}+v\frac{\partial}{\partial y}+w\frac{\partial}{\partial z}\right)v=-\frac{1}{\gamma}\frac{\partial p}{\partial y}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}+\frac{\partial^{2}}{\partial z^{2}}\right]v+\frac{1}{3Re}\left[\frac{\partial^{2}u}{\partial x\partial y}+\frac{\partial^{2}v}{\partial y^{2}}+\frac{\partial^{2}w}{\partial y\partial z}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Subtracting the base flow equation from instantaneous flow
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\bar{\rho}\frac{\partial v'}{\partial t}+\bar{\rho}\bar{u}\frac{\partial v'}{\partial x}+\bar{\rho}u'\frac{\partial\bar{v}}{\partial x}+\rho'\bar{u}\frac{\partial\bar{v}}{\partial x}+\bar{\rho}\bar{v}\frac{\partial v'}{\partial y}+\bar{\rho}v'\frac{\partial\bar{v}}{\partial y}+\rho'\bar{v}\frac{\partial\bar{v}}{\partial y}+\bar{\rho}\bar{w}\frac{\partial v'}{\partial z}+\bar{\rho}w'\frac{\partial\bar{v}}{\partial z}+\rho'\bar{w}\frac{\partial\bar{v}}{\partial z}\\
+=-\frac{1}{\gamma}\frac{\partial p'}{\partial y}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}+\frac{\partial^{2}}{\partial z^{2}}\right]v'+\frac{1}{3Re}\left[\frac{\partial^{2}u'}{\partial x\partial y}+\frac{\partial^{2}v'}{\partial y^{2}}+\frac{\partial^{2}w'}{\partial y\partial z}\right]
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+-i\omega\bar{\rho}\tilde{v}+\bar{\rho}\bar{u}\frac{\partial\tilde{v}}{\partial x}+\bar{\rho}\tilde{u}\frac{\partial\bar{v}}{\partial x}+\tilde{\rho}\bar{u}\frac{\partial\bar{v}}{\partial x}+\bar{\rho}\bar{v}\frac{\partial\tilde{v}}{\partial y}+\bar{\rho}\tilde{v}\frac{\partial\bar{v}}{\partial y}+\tilde{\rho}\bar{v}\frac{\partial\bar{v}}{\partial y}+i\beta\bar{\rho}\bar{w}\tilde{v}\\
+-\frac{1}{Re}\left[\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}-\beta^{2}\right]\tilde{v}-\frac{1}{3Re}\left[\frac{\partial^{2}\tilde{u}}{\partial x\partial y}+\frac{\partial^{2}\tilde{v}}{\partial y^{2}}+i\beta\frac{\partial\tilde{w}}{\partial y}\right]+\frac{1}{\gamma}\frac{\partial\tilde{p}}{\partial y}=0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\tilde{\rho}\bar{v}\frac{\partial\bar{v}}{\partial y}+\tilde{\rho}\bar{u}\frac{\partial\bar{v}}{\partial x}+\bar{\rho}\tilde{u}\frac{\partial\bar{v}}{\partial x}-i\omega\bar{\rho}\tilde{v}+\bar{\rho}\bar{u}\frac{\partial\tilde{v}}{\partial x}+\bar{\rho}\bar{v}\frac{\partial\tilde{v}}{\partial y}+\bar{\rho}\tilde{v}\frac{\partial\bar{v}}{\partial y}+i\beta\bar{\rho}\bar{w}\tilde{v}\\
+-\frac{1}{Re}\left[\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}-\beta^{2}\right]\tilde{v}-\frac{1}{3Re}\left[\frac{\partial^{2}\tilde{u}}{\partial x\partial y}+\frac{\partial^{2}\tilde{v}}{\partial y^{2}}+i\beta\frac{\partial\tilde{w}}{\partial y}\right]+\frac{1}{\gamma}\frac{\partial\tilde{p}}{\partial y}=0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+z-momentum Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho\left(\frac{\partial}{\partial t}+u\frac{\partial}{\partial x}+v\frac{\partial}{\partial y}+w\frac{\partial}{\partial z}\right)w=-\frac{1}{\gamma}\frac{\partial p}{\partial z}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}+\frac{\partial^{2}}{\partial z^{2}}\right]w+\frac{1}{3Re}\left[\frac{\partial^{2}u}{\partial x\partial z}+\frac{\partial^{2}v}{\partial y\partial z}+\frac{\partial^{2}w}{\partial z^{2}}\right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Subtracting the base flow equation from instantaneous flow
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\bar{\rho}\frac{\partial w'}{\partial t}+\bar{\rho}\bar{u}\frac{\partial w'}{\partial x}+\bar{\rho}u'\frac{\partial\bar{w}}{\partial x}+\rho'\bar{u}\frac{\partial\bar{w}}{\partial x}+\bar{\rho}\bar{v}\frac{\partial w'}{\partial y}+\bar{\rho}v'\frac{\partial\bar{w}}{\partial y}+\rho'\bar{v}\frac{\partial\bar{w}}{\partial y}+\bar{\rho}\bar{w}\frac{\partial w'}{\partial z}+\bar{\rho}w'\frac{\partial\bar{w}}{\partial z}+\rho'\bar{w}\frac{\partial\bar{w}}{\partial z}\\
+=-\frac{1}{\gamma}\frac{\partial p'}{\partial z}+\frac{1}{Re}\left[\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}+\frac{\partial^{2}}{\partial z^{2}}\right]w'+\frac{1}{3Re}\left[\frac{\partial^{2}u'}{\partial x\partial z}+\frac{\partial^{2}v'}{\partial y\partial z}+\frac{\partial^{2}w'}{\partial z^{2}}\right]
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+-i\omega\bar{\rho}\tilde{w}+\bar{\rho}\bar{u}\frac{\partial\tilde{w}}{\partial x}+\bar{\rho}\tilde{u}\frac{\partial\bar{w}}{\partial x}+\tilde{\rho}\bar{u}\frac{\partial\bar{w}}{\partial x}+\bar{\rho}\bar{v}\frac{\partial\tilde{w}}{\partial y}+\bar{\rho}\tilde{v}\frac{\partial\bar{w}}{\partial y}+\tilde{\rho}\bar{v}\frac{\partial\bar{w}}{\partial y}+i\beta\bar{\rho}\bar{w}\tilde{w}\\
+-\frac{1}{Re}\left[\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}-\beta^{2}\right]\tilde{w}-\frac{1}{3Re}\left[i\beta\frac{\partial\tilde{u}}{\partial x}+i\beta\frac{\partial\tilde{v}}{\partial y}-\beta^{2}\tilde{w}\right]+\frac{1}{\gamma}\frac{\partial\tilde{p}}{\partial z}=0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\tilde{\rho}\bar{u}\frac{\partial\bar{w}}{\partial x}+\tilde{\rho}\bar{v}\frac{\partial\bar{w}}{\partial y}+\bar{\rho}\tilde{u}\frac{\partial\bar{w}}{\partial x}+\bar{\rho}\tilde{v}\frac{\partial\bar{w}}{\partial y}-i\omega\bar{\rho}\tilde{w}+\bar{\rho}\bar{u}\frac{\partial\tilde{w}}{\partial x}+\bar{\rho}\bar{v}\frac{\partial\tilde{w}}{\partial y}+i\beta\bar{\rho}\bar{w}\tilde{w}\\
+-\frac{1}{Re}\left[\frac{\partial^{2}}{\partial x^{2}}+\frac{\partial^{2}}{\partial y^{2}}-\beta^{2}\right]\tilde{w}-\frac{1}{3Re}\left[i\beta\frac{\partial\tilde{u}}{\partial x}+i\beta\frac{\partial\tilde{v}}{\partial y}-\beta^{2}\tilde{w}\right]+\frac{i\beta}{\gamma}\tilde{p}=0
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Energy Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{eqnarray*}
+\rho^{2}\left(\frac{\partial\rho}{\partial t}+u\frac{\partial\rho}{\partial x}+v\frac{\partial\rho}{\partial y}+w\frac{\partial\rho}{\partial z}\right) & = & \left(\gamma-1\right)\rho^{3}\left(\frac{\partial u}{\partial x}+\frac{\partial v}{\partial y}+\frac{\partial w}{\partial z}\right)\\
+ &  & -\frac{\gamma}{Pr\,.\, Re}\left[2\left\{ \left(\frac{\partial\rho}{\partial x}\right)^{2}+\left(\frac{\partial\rho}{\partial y}\right)^{2}+\left(\frac{\partial\rho}{\partial z}\right)^{2}\right\} -\rho\left\{ \frac{\partial^{2}\rho}{\partial x^{2}}+\frac{\partial^{2}\rho}{\partial y^{2}}+\frac{\partial^{2}\rho}{\partial z^{2}}\right\} \right]
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Subtracting the base flow equation from instantaneous flow
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}^{2}\frac{\partial\rho'}{\partial t}+\bar{\rho}^{2}\bar{u}\frac{\partial\rho'}{\partial x}+\bar{\rho}^{2}u'\frac{\partial\bar{\rho}}{\partial x}+2\bar{\rho}\rho'\bar{u}\frac{\partial\bar{\rho}}{\partial x}+\bar{\rho}^{2}\bar{v}\frac{\partial\rho'}{\partial y}+\bar{\rho}^{2}v'\frac{\partial\bar{\rho}}{\partial y}+2\bar{\rho}\rho'\bar{v}\frac{\partial\bar{\rho}}{\partial y}+\bar{\rho}^{2}\bar{w}\frac{\partial\rho'}{\partial z}+\bar{\rho}^{2}w'\frac{\partial\bar{\rho}}{\partial z}+2\bar{\rho}\rho'\bar{w}\frac{\partial\bar{\rho}}{\partial z}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -0.25cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\left(\gamma-1\right)\left\{ \left(\bar{\rho}^{3}\frac{\partial u'}{\partial x}+3\bar{\rho}^{2}\rho'\frac{\partial\bar{u}}{\partial x}\right)+\left(\bar{\rho}^{3}\frac{\partial v'}{\partial y}+3\bar{\rho}^{2}\rho'\frac{\partial\bar{v}}{\partial y}\right)+\left(\bar{\rho}^{3}\frac{\partial w'}{\partial z}+3\bar{\rho}^{2}\rho'\frac{\partial\bar{w}}{\partial z}\right)\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -0.25cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{\gamma}{Pr\,.\, Re}\left[2\left\{ \frac{\partial\bar{\rho}}{\partial x}\frac{\partial\rho'}{\partial x}+\frac{\partial\bar{\rho}}{\partial y}\frac{\partial\rho'}{\partial y}+\frac{\partial\bar{\rho}}{\partial z}\frac{\partial\rho'}{\partial z}\right\} -\left\{ \bar{\rho}\frac{\partial^{2}\rho'}{\partial x^{2}}+\rho'\frac{\partial^{2}\bar{\rho}}{\partial x^{2}}+\bar{\rho}\frac{\partial^{2}\rho'}{\partial y^{2}}+\rho'\frac{\partial^{2}\bar{\rho}}{\partial y^{2}}+\bar{\rho}\frac{\partial^{2}\rho'}{\partial z^{2}}+\rho'\frac{\partial^{2}\bar{\rho}}{\partial z^{2}}\right\} \right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\Rightarrow-i\omega\bar{\rho}^{2}\tilde{\rho}+i\beta\bar{\rho}^{2}\bar{w}\tilde{\rho}+\bar{\rho}^{2}\bar{u}\frac{\partial\tilde{\rho}}{\partial x}+\bar{\rho}^{2}\bar{v}\frac{\partial\tilde{\rho}}{\partial y}+2\bar{\rho}\tilde{\rho}\bar{u}\frac{\partial\bar{\rho}}{\partial x}+2\bar{\rho}\tilde{\rho}\bar{v}\frac{\partial\bar{\rho}}{\partial y}+\bar{\rho}^{2}\tilde{u}\frac{\partial\bar{\rho}}{\partial x}+\bar{\rho}^{2}\tilde{v}\frac{\partial\bar{\rho}}{\partial y}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -0.25cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+=\left(\gamma-1\right)\left\{ \left(\bar{\rho}^{3}\frac{\partial\tilde{u}}{\partial x}+3\bar{\rho}^{2}\tilde{\rho}\frac{\partial\bar{u}}{\partial x}\right)+\left(\bar{\rho}^{3}\frac{\partial\tilde{v}}{\partial y}+3\bar{\rho}^{2}\tilde{\rho}\frac{\partial\bar{v}}{\partial y}\right)+i\beta\bar{\rho}^{3}\tilde{w}\right\} 
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -0.25cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+-\frac{\gamma}{Pr\,.\, Re}\left[2\left\{ \frac{\partial\bar{\rho}}{\partial x}\frac{\partial\tilde{\rho}}{\partial x}+\frac{\partial\bar{\rho}}{\partial y}\frac{\partial\tilde{\rho}}{\partial y}\right\} -\left\{ \bar{\rho}\frac{\partial^{2}\tilde{\rho}}{\partial x^{2}}+\tilde{\rho}\frac{\partial^{2}\bar{\rho}}{\partial x^{2}}+\bar{\rho}\frac{\partial^{2}\tilde{\rho}}{\partial y^{2}}+\tilde{\rho}\frac{\partial^{2}\bar{\rho}}{\partial y^{2}}-\beta^{2}\bar{\rho}\tilde{\rho}\right\} \right]
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Now the system of five equations can be written together in a matrix form
+ as following
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Aq=\omega Bq
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+A=\left(\begin{array}{ccccc}
+\mathcal{L}_{2D}+\bar{\rho}\bar{u}_{x}-\frac{1}{3Re}\mathcal{D}_{xx} & \bar{\rho}\bar{u}_{y}-\frac{1}{3Re}\mathcal{D}_{xy} & -\frac{i\beta}{3Re}\mathcal{D}_{x} & \bar{u}\bar{u}_{x}+\bar{v}\bar{u}_{y} & \frac{1}{\gamma}\mathcal{D}_{x}\\
+\bar{\rho}\bar{v}_{x}-\frac{1}{3Re}\mathcal{D}_{xy} & \mathcal{L}_{2D}+\bar{\rho}\bar{v}_{y}-\frac{1}{3Re}\mathcal{D}_{yy} & -\frac{i\beta}{3Re}\mathcal{D}_{y} & \bar{u}\bar{v}_{x}+\bar{v}\bar{v}_{y} & \frac{1}{\gamma}\mathcal{D}_{y}\\
+\bar{\rho}\bar{w}_{x}-\frac{i\beta}{3Re}\mathcal{D}_{x} & \bar{\rho}\bar{w}_{y}-\frac{i\beta}{3Re}\mathcal{D}_{y} & \mathcal{L}_{2D}+\frac{\beta^{2}}{3Re} & \bar{u}\bar{w}_{x}+\bar{v}\bar{w}_{y} & \frac{i\beta}{\gamma}\\
+\bar{\rho}\bar{\rho}_{x}+\bar{\rho}^{2}\mathcal{D}_{x} & \bar{\rho}\bar{\rho}_{y}+\bar{\rho}^{2}\mathcal{D}_{y} & i\beta\bar{\rho}^{2} & \bar{\rho}\bar{u}\mathcal{D}_{x}+\bar{\rho}\bar{v}\mathcal{D}_{y}+i\beta\bar{\rho}\bar{w}+\bar{\rho}\bar{u}_{x}+\bar{\rho}\bar{v}_{y} & 0\\
+\bar{\rho}\bar{\rho}_{x}-\left(\gamma-1\right)\bar{\rho}^{2}\mathcal{D}_{x} & \bar{\rho}\bar{\rho}_{y}-\left(\gamma-1\right)\bar{\rho}^{2}\mathcal{D}_{y} & -i\beta\left(\gamma-1\right)\bar{\rho}^{2} & \mathcal{M} & 0
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where 
+\begin_inset Formula $\mathcal{L}_{2D}=\bar{\rho}\bar{u}\mathcal{D}_{x}+\bar{\rho}\bar{v}\mathcal{D}_{y}+i\beta\bar{\rho}\bar{w}-\frac{1}{Re}\left[\mathcal{D}_{xx}+\mathcal{D}_{yy}-\beta^{2}\right]$
+\end_inset
+
+ ,
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathcal{M}=\bar{\rho}\bar{u}\mathcal{D}_{x}+\bar{\rho}\bar{v}\mathcal{D}_{y}+i\beta\bar{\rho}\bar{w}+2\bar{\rho}_{x}\bar{u}+2\bar{\rho}_{y}\bar{v}-3\left(\gamma-1\right)\left(\bar{\rho}\bar{u}_{x}+\bar{\rho}\bar{v}_{y}\right)+\frac{\gamma}{Pr\,.Re}\left[2\left(\frac{\bar{\rho}_{x}}{\bar{\rho}}\mathcal{D}_{x}+\frac{\bar{\rho}_{y}}{\bar{\rho}}\mathcal{D}_{y}\right)-\left(\mathcal{D}_{xx}+\mathcal{D}_{yy}-\beta^{2}+\frac{\bar{\rho}_{xx}}{\bar{\rho}}+\frac{\bar{\rho}_{yy}}{\bar{\rho}}\right)\right]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+and 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+B=\left(\begin{array}{ccccc}
+i\bar{\rho} & 0 & 0 & 0 & 0\\
+0 & i\bar{\rho} & 0 & 0 & 0\\
+0 & 0 & i\bar{\rho} & 0 & 0\\
+0 & 0 & 0 & i\bar{\rho} & 0\\
+0 & 0 & 0 & i\bar{\rho} & 0
+\end{array}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Bibliography
+\begin_inset CommandInset bibitem
+LatexCommand bibitem
+key "key-1"
+
+\end_inset
+
+@misc{cminpack, title={C/C++ Minpack}, author={Devernay, Fr{
+\backslash
+'e}d{
+\backslash
+'e}ric}, year={2007}, howpublished = "
+\backslash
+url{http://devernay.free.fr/hacks/cminpack/}", } 
+\end_layout
+
+\end_body
+\end_document

@@ -2,19 +2,7 @@
 *.o
 *.so
 *.log
-*.tex
-*.eps
-*.pdf
-*.lyx
-*.png
-*.jpeg
-*.toc
-*.gz
-*.zip
-*~
 *.aux
-*.directory
-*.ps
 bin/
 lib/
 

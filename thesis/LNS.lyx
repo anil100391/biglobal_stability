@@ -1,0 +1,285 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass report
+\begin_preamble
+% if pdflatex is used
+\usepackage{ifpdf}
+\ifpdf
+
+ % set fonts for nicer pdf view
+ \IfFileExists{lmodern.sty}
+  {\usepackage{lmodern}}{}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_amsmath 1
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+
+\series medium
+Linearised Navier Stokes Equations 
+\begin_inset Newline newline
+\end_inset
+
+Biglobal-Stability
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Governing Equations
+\end_layout
+
+\begin_layout Standard
+Continuity Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\rho}{\partial t}+\frac{\partial\left(\rho u_{i}\right)}{\partial x_{i}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Momentum Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho\frac{Du_{i}}{Dt}=-\frac{\partial p}{\partial x_{i}}+\rho g_{i}+\mu\frac{\partial}{\partial x_{j}}\left(\frac{\partial u_{i}}{\partial x_{j}}\right)+\left(\mu_{v}+\frac{\mu}{3}\right)\frac{\partial}{\partial x_{i}}\left(\frac{\partial u_{j}}{\partial x_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Energy Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho\frac{De}{Dt}=-p\frac{\partial u_{j}}{\partial x_{j}}+2\mu\left(S_{ij}-\frac{1}{3}\frac{\partial u_{j}}{\partial x_{j}}\delta_{ij}\right)^{2}+\mu_{v}\left(\frac{\partial u_{j}}{\partial x_{j}}\right)^{2}+\frac{\partial}{\partial x_{j}}\left(K\frac{\partial T}{\partial x_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+where
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+S_{ij}=\frac{1}{2}\left(\frac{\partial u_{i}}{\partial x_{j}}+\frac{\partial u_{j}}{\partial x_{i}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Non dimensional form of governing equations
+\end_layout
+
+\begin_layout Standard
+Let us create non dimension quantities as written below
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{x}_{i}=\frac{x_{i}}{L_{o}},\quad\bar{u}_{i}=\frac{u_{i}}{U_{o}},\quad\bar{t}=\frac{U_{o}t}{L_{o}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}=\frac{\rho}{\rho_{o}},\quad\bar{p}=\frac{p}{\rho_{o}U_{o}^{2}},\quad\bar{T}=\frac{T}{T_{o}},\quad
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Using in governing equations
+\end_layout
+
+\begin_layout Standard
+Continuity Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\rho_{o}U_{o}}{L_{o}}\frac{\partial\bar{\rho}}{\partial\bar{t}}+\frac{\rho_{o}U_{o}}{L_{o}}\frac{\partial\left(\bar{\rho}\bar{u}_{i}\right)}{\partial\bar{x}_{i}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\frac{\partial\bar{\rho}}{\partial\bar{t}}+\frac{\partial\left(\bar{\rho}\bar{u}_{i}\right)}{\partial\bar{x}_{i}}=0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Momentum Equation (Body forces left out)
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho_{o}\bar{\rho}\frac{U_{o}^{2}}{L_{o}}\frac{D\bar{u}_{i}}{D\bar{t}}=-\frac{\rho_{o}U_{o}^{2}}{L_{o}}\frac{\partial\bar{p}}{\partial\bar{x}_{i}}+\frac{\mu U_{o}}{L_{o}^{2}}\frac{\partial}{\partial\bar{x}_{j}}\left(\frac{\partial\bar{u}_{i}}{\partial\bar{x}_{j}}\right)+\left(\mu_{v}+\frac{\mu}{3}\right)\frac{U_{o}}{L_{o}^{2}}\frac{\partial}{\partial\bar{x}_{i}}\left(\frac{\partial\bar{u}_{j}}{\partial\bar{x}_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}\frac{D\bar{u}_{i}}{D\bar{t}}=-\frac{\partial\bar{p}}{\partial\bar{x}_{i}}+\frac{\mu}{\rho_{o}U_{o}L_{o}}\frac{\partial}{\partial\bar{x}_{j}}\left(\frac{\partial\bar{u}_{i}}{\partial\bar{x}_{j}}\right)+\left(\frac{\mu_{v}}{\mu}+\frac{1}{3}\right)\frac{\mu}{\rho_{o}U_{o}L_{o}}\frac{\partial}{\partial\bar{x}_{i}}\left(\frac{\partial\bar{u}_{j}}{\partial\bar{x}_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Note that 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+Re=\frac{\rho_{o}U_{o}L_{o}}{\mu}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hence
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\bar{\rho}\frac{D\bar{u}_{i}}{D\bar{t}}=-\frac{\partial\bar{p}}{\partial\bar{x}_{i}}+\frac{1}{Re}\frac{\partial}{\partial\bar{x}_{j}}\left(\frac{\partial\bar{u}_{i}}{\partial\bar{x}_{j}}\right)+\frac{1}{Re}\left(\frac{\mu_{v}}{\mu}+\frac{1}{3}\right)\frac{\partial}{\partial\bar{x}_{i}}\left(\frac{\partial\bar{u}_{j}}{\partial\bar{x}_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Energy Equation
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+\rho\frac{De}{Dt}=-p\frac{\partial u_{j}}{\partial x_{j}}+2\mu\left(S_{ij}-\frac{1}{3}\frac{\partial u_{j}}{\partial x_{j}}\delta_{ij}\right)^{2}+\mu_{v}\left(\frac{\partial u_{j}}{\partial x_{j}}\right)^{2}+\frac{\partial}{\partial x_{j}}\left(K\frac{\partial T}{\partial x_{j}}\right)
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

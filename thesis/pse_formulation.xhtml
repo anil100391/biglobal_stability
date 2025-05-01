@@ -1,0 +1,4862 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1 plus MathML 2.0//EN" "http://www.w3.org/TR/2001/REC-MathML2-20010221/dtd/xhtml-math11-f.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="GENERATOR" content="LyX 2.0.6" />
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+<title>3D-Parabolised Stability Equations</title>
+
+<!-- Text Class Preamble -->
+<style type="text/css">
+div.toc {
+margin: 2em 0em;
+border-style: solid;
+border-width: 2px 0px;
+padding: 1em 0em;
+}
+div.tochead { font-size: x-large; font-weight: bold; }
+div.lyxtoc-0 {
+margin: 2em 0em 0em 0em;
+font-size: xx-large;
+font-weight: bold;
+}
+div.lyxtoc-1 {
+margin: 1em 0em 0em 0em;
+font-size: x-large;
+font-weight: bold;
+}
+div.lyxtoc-2 {
+margin: 0em 0em 0em 1em;
+font-size: large;
+font-weight: normal;
+}
+div.lyxtoc-3 { margin: 0em 0em 0em 0.5em; font-size: medium; }
+div.lyxtoc-4 { margin: 0em 0em 0em 0.5em; }
+div.lyxtoc-5 { margin: 0em 0em 0em 0.5em; }
+div.lyxtoc-6 { margin: 0em 0em 0em 0.5em; }
+a.tocentry {
+text-decoration: none;
+color: black;
+}
+a.tocentry:visited { color: black; }
+a.tocarrow {
+font-weight: bold;
+text-decoration: none;
+color: #909090;
+}
+a.tocarrow:visited { color: #C0C0C0; }
+</style>
+
+<!-- Preamble Snippets -->
+
+<!-- Layout-provided Styles -->
+<style type='text/css'>
+h1.title {
+font-size: x-large;
+margin-bottom: 1ex;
+text-align: center;
+
+}
+div.author {
+font-size: large;
+margin-top: 1.3ex;
+margin-bottom: 0.7ex;
+text-align: center;
+
+}
+h1.chapter {
+font-weight: bold;
+font-size: xx-large;
+margin-top: 4ex;
+margin-bottom: 0.8ex;
+text-align: left;
+
+}
+div.standard {
+margin-bottom: 2ex;
+}
+div.plain_layout {
+text-align: left;
+
+}
+h2.section {
+font-weight: bold;
+font-size: x-large;
+margin-top: 1.3ex;
+margin-bottom: 0.7ex;
+text-align: left;
+
+}
+h3.subsection {
+font-weight: bold;
+font-size: large;
+margin-top: 0.9ex;
+margin-bottom: 0.5ex;
+text-align: left;
+
+}
+div.bibliography {
+margin-left: 2em;
+text-indent: -2em;
+}
+span.bibitemlabel:before { content: "["; }
+span.bibitemlabel:after { content: "] "; }
+span.foot_label {
+vertical-align: super;
+font-size: smaller;
+font-weight: bold;
+text-decoration: underline;
+}
+div.foot {
+display: inline;
+font-size: small;
+font-weight: medium;
+font-family: serif;
+font-variant: normal;
+font-style: normal;
+}
+div.foot_inner { display: none; }
+div.foot:hover div.foot_inner {
+display: block;
+border: 1px double black;
+margin: 0em 1em;
+padding: 1em;
+}
+</style>
+</head>
+<body>
+<h1 class="title"><a id='magicparlabel-3' />
+<strong>3D-Parabolised Stability Equations</strong></h1>
+<div class="author"><a id='magicparlabel-4' />
+Anil Kumar Singh</div>
+<h1 class="chapter"><span class="chapter_label">Chapter 1</span> <a id='magicparlabel-5' />
+Parabolized Stability Equations</h1>
+<div class="standard"><a id='magicparlabel-6' />
+Incompressible fluid flow is governed by mass conservation (continuity equation) and momentum equations (Navier-stokes equations) which are written below<div class="foot"><span class="foot_label">1</span><div class="foot_inner"><div class="plain_layout"><a id='magicparlabel-10' />
+* marked quantities are dimensional</div>
+</div></div>.</div>
+
+<div class="standard"><a id='magicparlabel-11' />
+Continuity Equation</div>
+
+<div class="standard"><a id='magicparlabel-12' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msup>
+       <mrow><mi>u</mi>
+       </mrow>
+       <mrow><mo>*</mo>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msup>
+       <mrow><mi>x</mi>
+       </mrow>
+       <mrow><mo>*</mo>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msup>
+       <mrow><mi>v</mi>
+       </mrow>
+       <mrow><mo>*</mo>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msup>
+       <mrow><mi>y</mi>
+       </mrow>
+       <mrow><mo>*</mo>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msup>
+       <mrow><mi>w</mi>
+       </mrow>
+       <mrow><mo>*</mo>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msup>
+       <mrow><mi>z</mi>
+       </mrow>
+       <mrow><mo>*</mo>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mn>0</mn>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-13' />
+and Navier Stokes equations</div>
+
+<div class="standard"><a id='magicparlabel-14' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi> &rho; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>u</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>t</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <msup>
+     <mrow><mi>u</mi>
+     </mrow>
+     <mrow><mo>*</mo>
+     </mrow>
+    </msup>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>u</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>x</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <msup>
+     <mrow><mi>v</mi>
+     </mrow>
+     <mrow><mo>*</mo>
+     </mrow>
+    </msup>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>u</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>y</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <msup>
+     <mrow><mi>w</mi>
+     </mrow>
+     <mrow><mo>*</mo>
+     </mrow>
+    </msup>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>u</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>z</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo><mo>=</mo><mo>-</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msup>
+       <mrow><mi>p</mi>
+       </mrow>
+       <mrow><mo>*</mo>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msup>
+       <mrow><mi>x</mi>
+       </mrow>
+       <mrow><mo>*</mo>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi> &mu; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>x</mi>
+        </mrow>
+        <mrow>
+         <mrow><mo>*</mo><mn>2</mn>
+         </mrow>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>y</mi>
+        </mrow>
+        <mrow>
+         <mrow><mo>*</mo><mn>2</mn>
+         </mrow>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>z</mi>
+        </mrow>
+        <mrow>
+         <mrow><mo>*</mo><mn>2</mn>
+         </mrow>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo>
+   <msup>
+    <mrow><mi>u</mi>
+    </mrow>
+    <mrow><mo>*</mo>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-15' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi> &rho; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>v</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>t</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <msup>
+     <mrow><mi>u</mi>
+     </mrow>
+     <mrow><mo>*</mo>
+     </mrow>
+    </msup>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>v</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>x</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <msup>
+     <mrow><mi>v</mi>
+     </mrow>
+     <mrow><mo>*</mo>
+     </mrow>
+    </msup>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>v</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>y</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <msup>
+     <mrow><mi>w</mi>
+     </mrow>
+     <mrow><mo>*</mo>
+     </mrow>
+    </msup>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>v</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>z</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo><mo>=</mo><mo>-</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msup>
+       <mrow><mi>p</mi>
+       </mrow>
+       <mrow><mo>*</mo>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msup>
+       <mrow><mi>y</mi>
+       </mrow>
+       <mrow><mo>*</mo>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi> &mu; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>x</mi>
+        </mrow>
+        <mrow>
+         <mrow><mo>*</mo><mn>2</mn>
+         </mrow>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>y</mi>
+        </mrow>
+        <mrow>
+         <mrow><mo>*</mo><mn>2</mn>
+         </mrow>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>z</mi>
+        </mrow>
+        <mrow>
+         <mrow><mo>*</mo><mn>2</mn>
+         </mrow>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo>
+   <msup>
+    <mrow><mi>v</mi>
+    </mrow>
+    <mrow><mo>*</mo>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-16' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi> &rho; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>w</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>t</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <msup>
+     <mrow><mi>u</mi>
+     </mrow>
+     <mrow><mo>*</mo>
+     </mrow>
+    </msup>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>w</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>x</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <msup>
+     <mrow><mi>v</mi>
+     </mrow>
+     <mrow><mo>*</mo>
+     </mrow>
+    </msup>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>w</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>y</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <msup>
+     <mrow><mi>w</mi>
+     </mrow>
+     <mrow><mo>*</mo>
+     </mrow>
+    </msup>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>w</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>z</mi>
+        </mrow>
+        <mrow><mo>*</mo>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo><mo>=</mo><mo>-</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msup>
+       <mrow><mi>p</mi>
+       </mrow>
+       <mrow><mo>*</mo>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msup>
+       <mrow><mi>z</mi>
+       </mrow>
+       <mrow><mo>*</mo>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi> &mu; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>x</mi>
+        </mrow>
+        <mrow>
+         <mrow><mo>*</mo><mn>2</mn>
+         </mrow>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>y</mi>
+        </mrow>
+        <mrow>
+         <mrow><mo>*</mo><mn>2</mn>
+         </mrow>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>z</mi>
+        </mrow>
+        <mrow>
+         <mrow><mo>*</mo><mn>2</mn>
+         </mrow>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo>
+   <msup>
+    <mrow><mi>w</mi>
+    </mrow>
+    <mrow><mo>*</mo>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-17' />
+Non-dimensional form of these equations can be obtained by specifying non dimensional quantities as shown below</div>
+
+<div class="standard"><a id='magicparlabel-18' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>x</mi><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <msup>
+      <mrow><mi>x</mi>
+      </mrow>
+      <mrow><mo>*</mo>
+      </mrow>
+     </msup>
+    </mrow>
+    <mrow><mi>L</mi>
+    </mrow>
+   </mfrac><mo>,</mo><mspace width="20px" /><mi>y</mi><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <msup>
+      <mrow><mi>y</mi>
+      </mrow>
+      <mrow><mo>*</mo>
+      </mrow>
+     </msup>
+    </mrow>
+    <mrow><mi>L</mi>
+    </mrow>
+   </mfrac><mo>,</mo><mspace width="20px" /><mi>z</mi><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <msup>
+      <mrow><mi>z</mi>
+      </mrow>
+      <mrow><mo>*</mo>
+      </mrow>
+     </msup>
+    </mrow>
+    <mrow><mi>L</mi>
+    </mrow>
+   </mfrac><mo>,</mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-19' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>u</mi><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <msup>
+      <mrow><mi>u</mi>
+      </mrow>
+      <mrow><mo>*</mo>
+      </mrow>
+     </msup>
+    </mrow>
+    <mrow><mi>U</mi>
+    </mrow>
+   </mfrac><mo>,</mo><mspace width="20px" /><mi>v</mi><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <msup>
+      <mrow><mi>v</mi>
+      </mrow>
+      <mrow><mo>*</mo>
+      </mrow>
+     </msup>
+    </mrow>
+    <mrow><mi>U</mi>
+    </mrow>
+   </mfrac><mo>,</mo><mspace width="20px" /><mi>w</mi><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <msup>
+      <mrow><mi>w</mi>
+      </mrow>
+      <mrow><mo>*</mo>
+      </mrow>
+     </msup>
+    </mrow>
+    <mrow><mi>U</mi>
+    </mrow>
+   </mfrac><mo>,</mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-20' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>t</mi><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi>U</mi>
+      <msup>
+       <mrow><mi>t</mi>
+       </mrow>
+       <mrow><mo>*</mo>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+    <mrow><mi>L</mi>
+    </mrow>
+   </mfrac><mo>,</mo><mspace width="20px" /><mi>p</mi><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <msup>
+      <mrow><mi>p</mi>
+      </mrow>
+      <mrow><mo>*</mo>
+      </mrow>
+     </msup>
+    </mrow>
+    <mrow>
+     <mrow><mi> &rho; </mi>
+      <msup>
+       <mrow><mi>U</mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+   </mfrac><mo>,</mo><mspace width="20px" /><mi>R</mi><mi>e</mi><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &rho; </mi><mi>U</mi><mi>L</mi>
+     </mrow>
+    </mrow>
+    <mrow><mi> &mu; </mi>
+    </mrow>
+   </mfrac><mo>,</mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-21' />
+Substituting in above continuity and momentum equations we get non-dimensional equations </div>
+
+<div class="standard"><a id='magicparlabel-22' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>w</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mn>0</mn>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-23' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>t</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>u</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>v</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>w</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mo>-</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>p</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow><mn>1</mn>
+    </mrow>
+    <mrow>
+     <mrow><mi>R</mi><mi>e</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>u</mi>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>x</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>u</mi>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>y</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>u</mi>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>z</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-24' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>t</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>u</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>v</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>w</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mo>-</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>p</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow><mn>1</mn>
+    </mrow>
+    <mrow>
+     <mrow><mi>R</mi><mi>e</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>v</mi>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>x</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>v</mi>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>y</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>v</mi>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>z</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-25' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>w</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>t</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>u</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>w</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>v</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>w</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>w</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>w</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mo>-</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>p</mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow><mn>1</mn>
+    </mrow>
+    <mrow>
+     <mrow><mi>R</mi><mi>e</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>w</mi>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>x</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>w</mi>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>y</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>w</mi>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>z</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo>
+  </mrow>
+ </mrow></math></div>
+<h2 class="section"><span class="section_label">1.1</span> <a id='magicparlabel-26' />
+Linearized Stability Equations</h2>
+<div class="standard"><a id='magicparlabel-27' />
+Let</div>
+
+<div class="standard"><a id='magicparlabel-28' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>q</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo>,</mo><mi>t</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo>=</mo>
+   <mover>
+    <mrow><mi>q</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo>+</mo><mi>q</mi><mo>'</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo>,</mo><mi>t</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-29' />
+Above equations are satisfied by instantaneous quantities <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>q</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo>,</mo><mi>t</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+  </mrow>
+ </mrow></math> and base flow <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mover>
+    <mrow><mi>q</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo>,</mo><mi>t</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+  </mrow>
+ </mrow></math>. Writing continuity and momentum for both and subtracting one from other give following linearized stability equations.</div>
+
+<div class="standard"><a id='magicparlabel-30' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>w</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mn>0</mn>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-31' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>t</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>u</mi><mo>'</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&OverBar;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>v</mi><mo>'</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&OverBar;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>w</mi><mo>'</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&OverBar;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mover>
+    <mrow><mi>v</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mover>
+    <mrow><mi>w</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>u</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mo>-</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>p</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow><mn>1</mn>
+    </mrow>
+    <mrow>
+     <mrow><mi>R</mi><mi>e</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>u</mi><mo>'</mo>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>x</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>u</mi><mo>'</mo>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>y</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>u</mi><mo>'</mo>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>z</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-32' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>t</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>u</mi><mo>'</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>v</mi>
+       </mrow><mo stretchy="true">&OverBar;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>v</mi><mo>'</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>v</mi>
+       </mrow><mo stretchy="true">&OverBar;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>w</mi><mo>'</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>v</mi>
+       </mrow><mo stretchy="true">&OverBar;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mover>
+    <mrow><mi>v</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mover>
+    <mrow><mi>w</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>v</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mo>-</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>p</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow><mn>1</mn>
+    </mrow>
+    <mrow>
+     <mrow><mi>R</mi><mi>e</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>v</mi><mo>'</mo>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>x</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>v</mi><mo>'</mo>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>y</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>v</mi><mo>'</mo>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>z</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-33' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>w</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>t</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>u</mi><mo>'</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>w</mi>
+       </mrow><mo stretchy="true">&OverBar;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>v</mi><mo>'</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>w</mi>
+       </mrow><mo stretchy="true">&OverBar;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>w</mi><mo>'</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>w</mi>
+       </mrow><mo stretchy="true">&OverBar;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>w</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mover>
+    <mrow><mi>v</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>w</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mover>
+    <mrow><mi>w</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>w</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mo>-</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>p</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow><mn>1</mn>
+    </mrow>
+    <mrow>
+     <mrow><mi>R</mi><mi>e</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>w</mi><mo>'</mo>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>x</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>w</mi><mo>'</mo>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>y</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup><mi>w</mi><mo>'</mo>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>z</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-34' />
+where </div>
+
+<div class="standard"><a id='magicparlabel-35' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>q</mi><mo>'</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo>,</mo><mi>t</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo>=</mo>
+   <mover>
+    <mrow><mi>q</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo> exp </mo><mi>i</mi><mo> &Theta; </mo>
+  </mrow>
+ </mrow></math></div>
+<h2 class="section"><span class="section_label">1.2</span> <a id='magicparlabel-36' />
+Parabolized Stability Equations</h2>
+<div class="standard"><a id='magicparlabel-37' />
+For different analysis type <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mover>
+   <mrow><mi>q</mi>
+   </mrow><mo stretchy="true">&tilde;</mo>
+  </mover>
+ </mrow></math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mo> &Theta; </mo>
+ </mrow></math> take different form. For example, for a bi-global analysis <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mover>
+    <mrow><mi>q</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo>=</mo>
+   <mover>
+    <mrow><mi>q</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+  </mrow>
+ </mrow></math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mo> &Theta; </mo><mo>=</mo><mi> &beta; </mi><mi>z</mi><mo>-</mo><mi> &omega; </mi><mi>t</mi>
+  </mrow>
+ </mrow></math> . For Orr-sommerfeld equations <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mover>
+    <mrow><mi>q</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo>=</mo>
+   <mover>
+    <mrow><mi>q</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo><mi>y</mi><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+  </mrow>
+ </mrow></math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mo> &Theta; </mo><mo>=</mo><mi> &alpha; </mi><mi>x</mi><mo>+</mo><mi> &beta; </mi><mi>z</mi><mo>-</mo><mi> &omega; </mi><mi>t</mi>
+  </mrow>
+ </mrow></math> .The introduction of a harmonic decomposition in <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>x</mi>
+ </mrow></math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>z</mi>
+ </mrow></math> implies homogeneity of the base flow in these directions. These conditions, however, are too restrictive for complicated vortical flows and those around two-dimensional bodies. Consequently, the flow is assumed to be general in a two-dimensional plane, and mildly inhomogeneous in the third direction which is permitted by allowing the axial wavenumber to vary slowly. This leads to the parabolised stability equation concept, formally introduced by Herbert[<a href='#LyXCite-key_1'>key-1</a>].</div>
+
+<div class="standard"><a id='magicparlabel-38' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>q</mi><mo>'</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi><mo>,</mo><mi>t</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo>=</mo>
+   <mover>
+    <mrow><mi>q</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo> exp </mo><mi>i</mi><mo> &Theta; </mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-39' />
+where <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mo> &Theta; </mo><mo>=</mo>
+   <msubsup>
+    <mrow><mo> &int; </mo>
+    </mrow>
+    <mrow>
+     <msub>
+      <mrow><mi>z</mi>
+      </mrow>
+      <mrow><mn>0</mn>
+      </mrow>
+     </msub>
+    </mrow>
+    <mrow><mi>z</mi>
+    </mrow>
+   </msubsup><mi> &beta; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo><mi> &xi; </mi><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mi>d</mi><mi> &xi; </mi><mo>-</mo><mi> &omega; </mi><mi>t</mi>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-40' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>q</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>{</mo>
+   <mrow><mi>i</mi><mi> &beta; </mi>
+    <mover>
+     <mrow><mi>q</mi>
+     </mrow><mo stretchy="true">&tilde;</mo>
+    </mover><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <mover>
+        <mrow><mi>q</mi>
+        </mrow><mo stretchy="true">&tilde;</mo>
+       </mover>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi><mi>z</mi>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>}</mo><mo> exp </mo><mi>i</mi><mo> &Theta; </mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-41' />
+and</div>
+
+<div class="standard"><a id='magicparlabel-42' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup><mi>q</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msup>
+       <mrow><mi>z</mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+   </mfrac><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>{</mo>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <mrow>
+       <msup>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+       <mover>
+        <mrow><mi>q</mi>
+        </mrow><mo stretchy="true">&tilde;</mo>
+       </mover>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>z</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo><mn>2</mn><mi>i</mi><mi> &beta; </mi>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <mover>
+        <mrow><mi>q</mi>
+        </mrow><mo stretchy="true">&tilde;</mo>
+       </mover>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi><mi>z</mi>
+      </mrow>
+     </mrow>
+    </mfrac><mo>-</mo>
+    <msup>
+     <mrow><mi> &beta; </mi>
+     </mrow>
+     <mrow><mn>2</mn>
+     </mrow>
+    </msup>
+    <mover>
+     <mrow><mi>q</mi>
+     </mrow><mo stretchy="true">&tilde;</mo>
+    </mover><mo>+</mo><mi>i</mi>
+    <mfrac>
+     <mrow>
+      <mrow><mi>d</mi><mi> &beta; </mi>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi>d</mi><mi>z</mi>
+      </mrow>
+     </mrow>
+    </mfrac>
+    <mover>
+     <mrow><mi>q</mi>
+     </mrow><mo stretchy="true">&tilde;</mo>
+    </mover>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>}</mo><mo> exp </mo><mi>i</mi><mo> &Theta; </mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-43' />
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi> &beta; </mi>
+ </mrow></math> is streamwise wavenumber complex in nature given as <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi> &beta; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo><mi> &xi; </mi><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo>=</mo>
+  </mrow>
+ </mrow></math><math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <msub>
+    <mrow><mi> &beta; </mi>
+    </mrow>
+    <mrow><mi>r</mi>
+    </mrow>
+   </msub><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo><mi> &xi; </mi><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo>+</mo><mi>i</mi>
+   <msub>
+    <mrow><mi> &beta; </mi>
+    </mrow>
+    <mrow><mi>i</mi>
+    </mrow>
+   </msub><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo><mi> &xi; </mi><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+  </mrow>
+ </mrow></math>. </div>
+
+<div class="standard"><a id='magicparlabel-44' />
+It should be noted that <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mover>
+    <mrow><mi>q</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+  </mrow>
+ </mrow></math> depends very weakly on <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>z</mi>
+ </mrow></math> coordinate hence, second derivatives w.r.t <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>z</mi>
+ </mrow></math> will be neglected. Therefore,</div>
+
+<div class="standard"><a id='magicparlabel-45' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mfrac>
+    <mrow>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup><mi>q</mi><mo>'</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <msup>
+       <mrow><mi>z</mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+    </mrow>
+   </mfrac><mo> &ap; </mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>{</mo>
+   <mrow><mn>2</mn><mi>i</mi><mi> &beta; </mi>
+    <mfrac>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <mover>
+        <mrow><mi>q</mi>
+        </mrow><mo stretchy="true">&tilde;</mo>
+       </mover>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi><mi>z</mi>
+      </mrow>
+     </mrow>
+    </mfrac><mo>-</mo>
+    <msup>
+     <mrow><mi> &beta; </mi>
+     </mrow>
+     <mrow><mn>2</mn>
+     </mrow>
+    </msup>
+    <mover>
+     <mrow><mi>q</mi>
+     </mrow><mo stretchy="true">&tilde;</mo>
+    </mover><mo>+</mo><mi>i</mi>
+    <mfrac>
+     <mrow>
+      <mrow><mi>d</mi><mi> &beta; </mi>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi>d</mi><mi>z</mi>
+      </mrow>
+     </mrow>
+    </mfrac>
+    <mover>
+     <mrow><mi>q</mi>
+     </mrow><mo stretchy="true">&tilde;</mo>
+    </mover>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>}</mo><mo> exp </mo><mi>i</mi><mo> &Theta; </mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-46' />
+Above form of perturbations if fetched in linearized stability equations to derive PSE as shown below.</div>
+
+<div class="standard"><a id='magicparlabel-47' />
+Continuity equation</div>
+
+<div class="standard"><a id='magicparlabel-48' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mtable>
+  <mtr>
+   <mtd>
+    <mrow>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>u</mi>
+         </mrow><mo stretchy="true">&tilde;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </mfrac><mo>+</mo>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>v</mi>
+         </mrow><mo stretchy="true">&tilde;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>y</mi>
+       </mrow>
+      </mrow>
+     </mfrac><mo>+</mo>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>w</mi>
+         </mrow><mo stretchy="true">&tilde;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>z</mi>
+       </mrow>
+      </mrow>
+     </mfrac><mo>+</mo><mi>i</mi><mi> &beta; </mi>
+     <mover>
+      <mrow><mi>w</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover><mo>=</mo><mn>0</mn>
+    </mrow>
+   </mtd>
+   <mtd>(1.2.1)
+   </mtd>
+  </mtr>
+ </mtable></math></div>
+
+<div class="standard"><a id='magicparlabel-49' />
+<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>x</mi>
+ </mrow></math> momentum equation</div>
+
+<div class="standard"><a id='magicparlabel-50' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mo>-</mo><mi>i</mi><mi> &omega; </mi>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&OverBar;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&OverBar;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <mover>
+    <mrow><mi>v</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo>+</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&OverBar;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <mover>
+    <mrow><mi>w</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo>+</mo>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&tilde;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mover>
+    <mrow><mi>v</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&tilde;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mover>
+    <mrow><mi>w</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&tilde;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>z</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>i</mi><mi> &beta; </mi>
+   <mover>
+    <mrow><mi>w</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo>=</mo><mo>-</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>p</mi>
+       </mrow><mo stretchy="true">&tilde;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo>
+   <mfrac>
+    <mrow><mn>1</mn>
+    </mrow>
+    <mrow>
+     <mrow><mi>R</mi><mi>e</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo form='prefix' fence='true' stretchy='true' symmetric='true'>{</mo>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>x</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>y</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>-</mo>
+    <msup>
+     <mrow><mi> &beta; </mi>
+     </mrow>
+     <mrow><mn>2</mn>
+     </mrow>
+    </msup><mo>+</mo><mn>2</mn><mi>i</mi><mi> &beta; </mi>
+    <mfrac>
+     <mrow><mi> &part; </mi>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi><mi>z</mi>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo><mi>i</mi>
+    <mfrac>
+     <mrow>
+      <mrow><mi>d</mi><mi> &beta; </mi>
+      </mrow>
+     </mrow>
+     <mrow>
+      <mrow><mi>d</mi><mi>z</mi>
+      </mrow>
+     </mrow>
+    </mfrac>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>}</mo>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-51' />
+Calling <math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>L</mi><mo> &equiv; </mo>
+   <mfrac>
+    <mrow><mn>1</mn>
+    </mrow>
+    <mrow>
+     <mrow><mi>R</mi><mi>e</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+   <mrow>
+    <mfrac>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>x</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>+</mo>
+    <mfrac>
+     <mrow>
+      <msup>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow><mn>2</mn>
+       </mrow>
+      </msup>
+     </mrow>
+     <mrow>
+      <mrow><mi> &part; </mi>
+       <msup>
+        <mrow><mi>y</mi>
+        </mrow>
+        <mrow><mn>2</mn>
+        </mrow>
+       </msup>
+      </mrow>
+     </mrow>
+    </mfrac><mo>-</mo>
+    <msup>
+     <mrow><mi> &beta; </mi>
+     </mrow>
+     <mrow><mn>2</mn>
+     </mrow>
+    </msup>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo><mo>-</mo>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+   <mfrac>
+    <mrow><mi> &part; </mi>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>-</mo>
+   <mover>
+    <mrow><mi>v</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+   <mfrac>
+    <mrow><mi> &part; </mi>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>y</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>-</mo><mi>i</mi><mi> &beta; </mi>
+   <mover>
+    <mrow><mi>w</mi>
+    </mrow><mo stretchy="true">&OverBar;</mo>
+   </mover>
+  </mrow>
+ </mrow></math></div>
+<h1 class="chapter"><span class="chapter_label">Chapter 2</span> <a id='magicparlabel-52' />
+Change from here</h1>
+<div class="standard"><a id='magicparlabel-53' />
+Above equation can is written as</div>
+
+<div class="standard"><a id='magicparlabel-54' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mtable>
+  <mtr>
+   <mtd>
+    <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+     <mrow><mi>L</mi><mo>-</mo>
+      <mfrac>
+       <mrow>
+        <mrow><mi> &part; </mi>
+         <mover>
+          <mrow><mi>u</mi>
+          </mrow><mo stretchy="true">&OverBar;</mo>
+         </mover>
+        </mrow>
+       </mrow>
+       <mrow>
+        <mrow><mi> &part; </mi><mi>x</mi>
+        </mrow>
+       </mrow>
+      </mfrac><mo>-</mo>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&OverBar;</mo>
+      </mover>
+      <mfrac>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow>
+        <mrow><mi> &part; </mi><mi>x</mi>
+        </mrow>
+       </mrow>
+      </mfrac><mo>+</mo><mi>i</mi><mi> &omega; </mi>
+     </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+     <mover>
+      <mrow><mi>u</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover><mo>-</mo>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>u</mi>
+         </mrow><mo stretchy="true">&OverBar;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>y</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <mover>
+      <mrow><mi>v</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover><mo>-</mo>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>u</mi>
+         </mrow><mo stretchy="true">&OverBar;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>z</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <mover>
+      <mrow><mi>w</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover><mo>-</mo>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>p</mi>
+         </mrow><mo stretchy="true">&tilde;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </mfrac><mo>-</mo><mi>i</mi><mi> &alpha; </mi>
+     <mover>
+      <mrow><mi>p</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover><mo>=</mo><mo>-</mo>
+     <mfrac>
+      <mrow>
+       <mrow><mn>2</mn><mi>i</mi><mi> &alpha; </mi>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi>R</mi><mi>e</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>u</mi>
+         </mrow><mo stretchy="true">&tilde;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </mfrac><mo>-</mo>
+     <mfrac>
+      <mrow><mi>i</mi>
+      </mrow>
+      <mrow>
+       <mrow><mi>R</mi><mi>e</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <mfrac>
+      <mrow>
+       <mrow><mi>d</mi><mi> &alpha; </mi>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi>d</mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <mover>
+      <mrow><mi>u</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover>
+    </mrow>
+   </mtd>
+   <mtd>(2.0.2)
+   </mtd>
+  </mtr>
+ </mtable></math></div>
+
+<div class="standard"><a id='magicparlabel-55' />
+Similar manipulation give following equations for <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>y</mi>
+ </mrow></math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>z</mi>
+ </mrow></math> linearized stability equations</div>
+
+<div class="standard"><a id='magicparlabel-56' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mtable>
+  <mtr>
+   <mtd>
+    <mrow><mo>-</mo>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>v</mi>
+         </mrow><mo stretchy="true">&OverBar;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <mover>
+      <mrow><mi>u</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover><mo>+</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+     <mrow><mi>L</mi><mo>-</mo>
+      <mfrac>
+       <mrow>
+        <mrow><mi> &part; </mi>
+         <mover>
+          <mrow><mi>v</mi>
+          </mrow><mo stretchy="true">&OverBar;</mo>
+         </mover>
+        </mrow>
+       </mrow>
+       <mrow>
+        <mrow><mi> &part; </mi><mi>y</mi>
+        </mrow>
+       </mrow>
+      </mfrac><mo>-</mo>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&OverBar;</mo>
+      </mover>
+      <mfrac>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow>
+        <mrow><mi> &part; </mi><mi>x</mi>
+        </mrow>
+       </mrow>
+      </mfrac><mo>+</mo><mi>i</mi><mi> &omega; </mi>
+     </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+     <mover>
+      <mrow><mi>v</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover><mo>-</mo>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>v</mi>
+         </mrow><mo stretchy="true">&OverBar;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>z</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <mover>
+      <mrow><mi>w</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover><mo>-</mo>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>p</mi>
+         </mrow><mo stretchy="true">&tilde;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>y</mi>
+       </mrow>
+      </mrow>
+     </mfrac><mo>=</mo><mo>-</mo>
+     <mfrac>
+      <mrow>
+       <mrow><mn>2</mn><mi>i</mi><mi> &alpha; </mi>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi>R</mi><mi>e</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>v</mi>
+         </mrow><mo stretchy="true">&tilde;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </mfrac><mo>-</mo>
+     <mfrac>
+      <mrow><mi>i</mi>
+      </mrow>
+      <mrow>
+       <mrow><mi>R</mi><mi>e</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <mfrac>
+      <mrow>
+       <mrow><mi>d</mi><mi> &alpha; </mi>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi>d</mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <mover>
+      <mrow><mi>v</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover>
+    </mrow>
+   </mtd>
+   <mtd>(2.0.3)
+   </mtd>
+  </mtr>
+ </mtable></math></div>
+
+<div class="standard"><a id='magicparlabel-57' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mtable>
+  <mtr>
+   <mtd>
+    <mrow><mo>-</mo>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>w</mi>
+         </mrow><mo stretchy="true">&OverBar;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <mover>
+      <mrow><mi>u</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover><mo>-</mo>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>w</mi>
+         </mrow><mo stretchy="true">&OverBar;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>y</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <mover>
+      <mrow><mi>v</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover><mo>+</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+     <mrow><mi>L</mi><mo>-</mo>
+      <mfrac>
+       <mrow>
+        <mrow><mi> &part; </mi>
+         <mover>
+          <mrow><mi>w</mi>
+          </mrow><mo stretchy="true">&OverBar;</mo>
+         </mover>
+        </mrow>
+       </mrow>
+       <mrow>
+        <mrow><mi> &part; </mi><mi>z</mi>
+        </mrow>
+       </mrow>
+      </mfrac><mo>-</mo>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&OverBar;</mo>
+      </mover>
+      <mfrac>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow>
+        <mrow><mi> &part; </mi><mi>x</mi>
+        </mrow>
+       </mrow>
+      </mfrac><mo>+</mo><mi>i</mi><mi> &omega; </mi>
+     </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+     <mover>
+      <mrow><mi>w</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover><mo>-</mo>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>p</mi>
+         </mrow><mo stretchy="true">&tilde;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>z</mi>
+       </mrow>
+      </mrow>
+     </mfrac><mo>-</mo><mi>i</mi><mi> &alpha; </mi>
+     <mover>
+      <mrow><mi>p</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover><mo>=</mo><mo>-</mo>
+     <mfrac>
+      <mrow>
+       <mrow><mn>2</mn><mi>i</mi><mi> &alpha; </mi>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi>R</mi><mi>e</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>w</mi>
+         </mrow><mo stretchy="true">&tilde;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </mfrac><mo>-</mo>
+     <mfrac>
+      <mrow><mi>i</mi>
+      </mrow>
+      <mrow>
+       <mrow><mi>R</mi><mi>e</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <mfrac>
+      <mrow>
+       <mrow><mi>d</mi><mi> &alpha; </mi>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi>d</mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <mover>
+      <mrow><mi>w</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover>
+    </mrow>
+   </mtd>
+   <mtd>(2.0.4)
+   </mtd>
+  </mtr>
+ </mtable></math></div>
+
+<div class="standard"><a id='magicparlabel-58' />
+Above four equations are called parabolised stability equation.</div>
+
+<div class="standard"><a id='magicparlabel-59' />
+In matrix form they are written as</div>
+
+<div class="standard"><a id='magicparlabel-60' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mtable>
+  <mtr>
+   <mtd>
+    <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+     <mrow>
+      <msub>
+       <mrow><mi>L</mi>
+       </mrow>
+       <mrow><mn>0</mn>
+       </mrow>
+      </msub><mo>+</mo>
+      <msub>
+       <mrow><mi>L</mi>
+       </mrow>
+       <mrow><mn>1</mn>
+       </mrow>
+      </msub>
+     </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+     <mover>
+      <mrow><mi>q</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover><mo>+</mo>
+     <msub>
+      <mrow><mi>L</mi>
+      </mrow>
+      <mrow><mn>2</mn>
+      </mrow>
+     </msub>
+     <mfrac>
+      <mrow>
+       <mrow><mi> &part; </mi>
+        <mover>
+         <mrow><mi>q</mi>
+         </mrow><mo stretchy="true">&tilde;</mo>
+        </mover>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi> &part; </mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </mfrac><mo>+</mo><mi>i</mi>
+     <mfrac>
+      <mrow>
+       <mrow><mi>d</mi><mi> &alpha; </mi>
+       </mrow>
+      </mrow>
+      <mrow>
+       <mrow><mi>d</mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </mfrac>
+     <msub>
+      <mrow><mi>L</mi>
+      </mrow>
+      <mrow><mn>3</mn>
+      </mrow>
+     </msub>
+     <mover>
+      <mrow><mi>q</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover><mo>=</mo><mn>0</mn>
+    </mrow>
+   </mtd>
+   <mtd>(2.0.5)
+   </mtd>
+  </mtr>
+ </mtable></math></div>
+
+<div class="standard"><a id='magicparlabel-61' />
+where <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mover>
+    <mrow><mi>q</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo>=</mo>
+   <msup>
+    <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>[</mo>
+     <mrow>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&tilde;</mo>
+      </mover><mspace width="20px" />
+      <mover>
+       <mrow><mi>v</mi>
+       </mrow><mo stretchy="true">&tilde;</mo>
+      </mover><mspace width="20px" />
+      <mover>
+       <mrow><mi>w</mi>
+       </mrow><mo stretchy="true">&tilde;</mo>
+      </mover><mspace width="20px" />
+      <mover>
+       <mrow><mi>p</mi>
+       </mrow><mo stretchy="true">&tilde;</mo>
+      </mover>
+     </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>]</mo>
+    </mrow>
+    <mrow><mi>T</mi>
+    </mrow>
+   </msup>
+  </mrow>
+ </mrow></math> and operators <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <msub>
+   <mrow><mi>L</mi>
+   </mrow>
+   <mrow><mi>i</mi>
+   </mrow>
+  </msub>
+ </mrow></math>, <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>i</mi><mo>=</mo><mn>0</mn><mo>,</mo><mspace width="6px" /><mspace width="6px" /><mn>1</mn><mo>,</mo><mspace width="6px" /><mspace width="6px" /><mn>2</mn><mo>,</mo><mspace width="6px" /><mspace width="6px" /><mn>3</mn>
+  </mrow>
+ </mrow></math> are </div>
+
+<div class="standard"><a id='magicparlabel-62' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <msub>
+    <mrow><mi>L</mi>
+    </mrow>
+    <mrow><mn>0</mn>
+    </mrow>
+   </msub><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>[</mo>
+   <mtable>
+    <mtr>
+     <mtd>
+      <mrow><mi>L</mi><mo>+</mo><mi>i</mi><mi> &omega; </mi>
+      </mrow>
+     </mtd>
+     <mtd>
+      <mrow><mo>-</mo>
+       <mfrac>
+        <mrow>
+         <mrow><mi> &part; </mi>
+          <mover>
+           <mrow><mi>u</mi>
+           </mrow><mo stretchy="true">&OverBar;</mo>
+          </mover>
+         </mrow>
+        </mrow>
+        <mrow>
+         <mrow><mi> &part; </mi><mi>y</mi>
+         </mrow>
+        </mrow>
+       </mfrac>
+      </mrow>
+     </mtd>
+     <mtd>
+      <mrow><mo>-</mo>
+       <mfrac>
+        <mrow>
+         <mrow><mi> &part; </mi>
+          <mover>
+           <mrow><mi>u</mi>
+           </mrow><mo stretchy="true">&OverBar;</mo>
+          </mover>
+         </mrow>
+        </mrow>
+        <mrow>
+         <mrow><mi> &part; </mi><mi>z</mi>
+         </mrow>
+        </mrow>
+       </mfrac>
+      </mrow>
+     </mtd>
+     <mtd>
+      <mrow><mo>-</mo><mi>i</mi><mi> &alpha; </mi>
+      </mrow>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd>
+      <mrow><mi>L</mi><mo>-</mo>
+       <mfrac>
+        <mrow>
+         <mrow><mi> &part; </mi>
+          <mover>
+           <mrow><mi>v</mi>
+           </mrow><mo stretchy="true">&OverBar;</mo>
+          </mover>
+         </mrow>
+        </mrow>
+        <mrow>
+         <mrow><mi> &part; </mi><mi>y</mi>
+         </mrow>
+        </mrow>
+       </mfrac><mo>+</mo><mi>i</mi><mi> &omega; </mi>
+      </mrow>
+     </mtd>
+     <mtd>
+      <mrow><mo>-</mo>
+       <mfrac>
+        <mrow>
+         <mrow><mi> &part; </mi>
+          <mover>
+           <mrow><mi>v</mi>
+           </mrow><mo stretchy="true">&OverBar;</mo>
+          </mover>
+         </mrow>
+        </mrow>
+        <mrow>
+         <mrow><mi> &part; </mi><mi>z</mi>
+         </mrow>
+        </mrow>
+       </mfrac>
+      </mrow>
+     </mtd>
+     <mtd>
+      <mrow><mo>-</mo>
+       <mfrac>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow>
+         <mrow><mi> &part; </mi><mi>y</mi>
+         </mrow>
+        </mrow>
+       </mfrac>
+      </mrow>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd>
+      <mrow><mo>-</mo>
+       <mfrac>
+        <mrow>
+         <mrow><mi> &part; </mi>
+          <mover>
+           <mrow><mi>w</mi>
+           </mrow><mo stretchy="true">&OverBar;</mo>
+          </mover>
+         </mrow>
+        </mrow>
+        <mrow>
+         <mrow><mi> &part; </mi><mi>y</mi>
+         </mrow>
+        </mrow>
+       </mfrac>
+      </mrow>
+     </mtd>
+     <mtd>
+      <mrow><mi>L</mi><mo>-</mo>
+       <mfrac>
+        <mrow>
+         <mrow><mi> &part; </mi>
+          <mover>
+           <mrow><mi>w</mi>
+           </mrow><mo stretchy="true">&OverBar;</mo>
+          </mover>
+         </mrow>
+        </mrow>
+        <mrow>
+         <mrow><mi> &part; </mi><mi>z</mi>
+         </mrow>
+        </mrow>
+       </mfrac><mo>+</mo><mi>i</mi><mi> &omega; </mi>
+      </mrow>
+     </mtd>
+     <mtd>
+      <mrow><mo>-</mo>
+       <mfrac>
+        <mrow><mi> &part; </mi>
+        </mrow>
+        <mrow>
+         <mrow><mi> &part; </mi><mi>z</mi>
+         </mrow>
+        </mrow>
+       </mfrac>
+      </mrow>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd>
+      <mrow><mi>i</mi><mi> &alpha; </mi>
+      </mrow>
+     </mtd>
+     <mtd>
+      <mfrac>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow>
+        <mrow><mi> &part; </mi><mi>y</mi>
+        </mrow>
+       </mrow>
+      </mfrac>
+     </mtd>
+     <mtd>
+      <mfrac>
+       <mrow><mi> &part; </mi>
+       </mrow>
+       <mrow>
+        <mrow><mi> &part; </mi><mi>z</mi>
+        </mrow>
+       </mrow>
+      </mfrac>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+    </mtr>
+   </mtable><mo form='postfix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>]</mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-63' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <msub>
+    <mrow><mi>L</mi>
+    </mrow>
+    <mrow><mn>1</mn>
+    </mrow>
+   </msub><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>[</mo>
+   <mtable>
+    <mtr>
+     <mtd>
+      <mrow><mo>-</mo>
+       <mfrac>
+        <mrow>
+         <mrow><mi> &part; </mi>
+          <mover>
+           <mrow><mi>u</mi>
+           </mrow><mo stretchy="true">&OverBar;</mo>
+          </mover>
+         </mrow>
+        </mrow>
+        <mrow>
+         <mrow><mi> &part; </mi><mi>x</mi>
+         </mrow>
+        </mrow>
+       </mfrac>
+      </mrow>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd>
+      <mrow><mo>-</mo>
+       <mfrac>
+        <mrow>
+         <mrow><mi> &part; </mi>
+          <mover>
+           <mrow><mi>v</mi>
+           </mrow><mo stretchy="true">&OverBar;</mo>
+          </mover>
+         </mrow>
+        </mrow>
+        <mrow>
+         <mrow><mi> &part; </mi><mi>x</mi>
+         </mrow>
+        </mrow>
+       </mfrac>
+      </mrow>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd>
+      <mrow><mo>-</mo>
+       <mfrac>
+        <mrow>
+         <mrow><mi> &part; </mi>
+          <mover>
+           <mrow><mi>w</mi>
+           </mrow><mo stretchy="true">&OverBar;</mo>
+          </mover>
+         </mrow>
+        </mrow>
+        <mrow>
+         <mrow><mi> &part; </mi><mi>x</mi>
+         </mrow>
+        </mrow>
+       </mfrac>
+      </mrow>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+    </mtr>
+   </mtable><mo form='postfix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>]</mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-64' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <msub>
+    <mrow><mi>L</mi>
+    </mrow>
+    <mrow><mn>2</mn>
+    </mrow>
+   </msub><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>[</mo>
+   <mtable>
+    <mtr>
+     <mtd>
+      <mrow><mo>-</mo>
+       <mover>
+        <mrow><mi>u</mi>
+        </mrow><mo stretchy="true">&OverBar;</mo>
+       </mover><mo>+</mo>
+       <mfrac>
+        <mrow>
+         <mrow><mn>2</mn><mi>i</mi><mi> &alpha; </mi>
+         </mrow>
+        </mrow>
+        <mrow>
+         <mrow><mi>R</mi><mi>e</mi>
+         </mrow>
+        </mrow>
+       </mfrac>
+      </mrow>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd>
+      <mrow><mo>-</mo><mn>1</mn>
+      </mrow>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd>
+      <mrow><mo>-</mo>
+       <mover>
+        <mrow><mi>u</mi>
+        </mrow><mo stretchy="true">&OverBar;</mo>
+       </mover><mo>+</mo>
+       <mfrac>
+        <mrow>
+         <mrow><mn>2</mn><mi>i</mi><mi> &alpha; </mi>
+         </mrow>
+        </mrow>
+        <mrow>
+         <mrow><mi>R</mi><mi>e</mi>
+         </mrow>
+        </mrow>
+       </mfrac>
+      </mrow>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd>
+      <mrow><mo>-</mo>
+       <mover>
+        <mrow><mi>u</mi>
+        </mrow><mo stretchy="true">&OverBar;</mo>
+       </mover><mo>+</mo>
+       <mfrac>
+        <mrow>
+         <mrow><mn>2</mn><mi>i</mi><mi> &alpha; </mi>
+         </mrow>
+        </mrow>
+        <mrow>
+         <mrow><mi>R</mi><mi>e</mi>
+         </mrow>
+        </mrow>
+       </mfrac>
+      </mrow>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+     <mtd><mrow/>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mn>1</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+    </mtr>
+   </mtable><mo form='postfix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>]</mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-65' />
+and</div>
+
+<div class="standard"><a id='magicparlabel-66' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <msub>
+    <mrow><mi>L</mi>
+    </mrow>
+    <mrow><mn>3</mn>
+    </mrow>
+   </msub><mo>=</mo><mo form='prefix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>[</mo>
+   <mtable>
+    <mtr>
+     <mtd>
+      <mfrac>
+       <mrow><mn>1</mn>
+       </mrow>
+       <mrow>
+        <mrow><mi>R</mi><mi>e</mi>
+        </mrow>
+       </mrow>
+      </mfrac>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd>
+      <mfrac>
+       <mrow><mn>1</mn>
+       </mrow>
+       <mrow>
+        <mrow><mi>R</mi><mi>e</mi>
+        </mrow>
+       </mrow>
+      </mfrac>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd>
+      <mfrac>
+       <mrow><mn>1</mn>
+       </mrow>
+       <mrow>
+        <mrow><mi>R</mi><mi>e</mi>
+        </mrow>
+       </mrow>
+      </mfrac>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+    </mtr>
+    <mtr>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+     <mtd><mn>0</mn>
+     </mtd>
+    </mtr>
+   </mtable><mo form='postfix' fence='true' stretchy='true' symmetric='true' lspace='thinmathspace'>]</mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-67' />
+Matrix <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <msub>
+   <mrow><mi>L</mi>
+   </mrow>
+   <mrow><mn>0</mn>
+   </mrow>
+  </msub>
+ </mrow></math> is the only matrix present for parallel flow triglobal analysis.</div>
+<h3 class="subsection"><span class="subsection_label">2.0.1</span> <a id='magicparlabel-68' />
+Normalization condition</h3>
+<div class="standard"><a id='magicparlabel-69' />
+Implicit in this derivation is that the disturbance takes the form of a rapidly varying phase function and a slowly varying shape function. Under this assumption second derivatives w.r.t <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>x</mi>
+ </mrow></math> can be neglected. For these properties to be satisfied, and to resolve the ambiguity of representing the disturbance component as the product of two functions of <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>x</mi>
+ </mrow></math>, a normalization condition restricting rapid streamwise changes must be applied. In a manner analogous to that used by Bertolotti[<a href='#LyXCite-key_2'>key-2</a>] in their analysis of the two-dimensional flat-plate boundary layer, a suitable normalization condition is</div>
+
+<div class="standard"><a id='magicparlabel-70' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <msubsup>
+    <mrow><mo> &int; </mo>
+    </mrow>
+    <mrow>
+     <msub>
+      <mrow><mi>y</mi>
+      </mrow>
+      <mrow>
+       <mrow><mi>m</mi><mi>i</mi><mi>n</mi>
+       </mrow>
+      </mrow>
+     </msub>
+    </mrow>
+    <mrow>
+     <msub>
+      <mrow><mi>y</mi>
+      </mrow>
+      <mrow>
+       <mrow><mi>m</mi><mi>a</mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </msub>
+    </mrow>
+   </msubsup>
+   <msubsup>
+    <mrow><mo> &int; </mo>
+    </mrow>
+    <mrow>
+     <msub>
+      <mrow><mi>z</mi>
+      </mrow>
+      <mrow>
+       <mrow><mi>m</mi><mi>i</mi><mi>n</mi>
+       </mrow>
+      </mrow>
+     </msub>
+    </mrow>
+    <mrow>
+     <msub>
+      <mrow><mi>z</mi>
+      </mrow>
+      <mrow>
+       <mrow><mi>m</mi><mi>a</mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </msub>
+    </mrow>
+   </msubsup>
+   <msup>
+    <mrow>
+     <mover>
+      <mrow><mi>u</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover>
+    </mrow>
+    <mrow><mo>*</mo>
+    </mrow>
+   </msup>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&tilde;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mi>d</mi><mi>y</mi><mi>d</mi><mi>z</mi><mo>=</mo>
+   <msubsup>
+    <mrow><mo> &int; </mo>
+    </mrow>
+    <mrow>
+     <msub>
+      <mrow><mi>y</mi>
+      </mrow>
+      <mrow>
+       <mrow><mi>m</mi><mi>i</mi><mi>n</mi>
+       </mrow>
+      </mrow>
+     </msub>
+    </mrow>
+    <mrow>
+     <msub>
+      <mrow><mi>y</mi>
+      </mrow>
+      <mrow>
+       <mrow><mi>m</mi><mi>a</mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </msub>
+    </mrow>
+   </msubsup>
+   <msubsup>
+    <mrow><mo> &int; </mo>
+    </mrow>
+    <mrow>
+     <msub>
+      <mrow><mi>z</mi>
+      </mrow>
+      <mrow>
+       <mrow><mi>m</mi><mi>i</mi><mi>n</mi>
+       </mrow>
+      </mrow>
+     </msub>
+    </mrow>
+    <mrow>
+     <msub>
+      <mrow><mi>z</mi>
+      </mrow>
+      <mrow>
+       <mrow><mi>m</mi><mi>a</mi><mi>x</mi>
+       </mrow>
+      </mrow>
+     </msub>
+    </mrow>
+   </msubsup>
+   <mfrac>
+    <mrow><mn>1</mn>
+    </mrow>
+    <mrow><mn>2</mn>
+    </mrow>
+   </mfrac>
+   <mfrac>
+    <mrow><mi> &part; </mi>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <msup>
+    <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>|</mo>
+     <mover>
+      <mrow><mi>u</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover><mo form='postfix' fence='true' stretchy='true' symmetric='true'>|</mo>
+    </mrow>
+    <mrow><mn>2</mn>
+    </mrow>
+   </msup><mi>d</mi><mi>y</mi><mi>d</mi><mi>z</mi><mo>=</mo><mn>0</mn>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-71' />
+* represents the complex conjugate.</div>
+<h2 class="section"><span class="section_label">2.1</span> <a id='magicparlabel-72' />
+Solution methodology for PSE</h2>
+<div class="standard"><a id='magicparlabel-73' />
+The solution to PSE can be done by treating <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <msub>
+   <mrow><mi>x</mi>
+   </mrow>
+   <mrow><mn>0</mn>
+   </mrow>
+  </msub>
+ </mrow></math> as time and marching in <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>x</mi>
+ </mrow></math> direction using Euler scheme as described below.</div>
+
+<div class="standard"><a id='magicparlabel-74' />
+Equation to be solved is</div>
+
+<div class="standard"><a id='magicparlabel-75' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow>
+    <msub>
+     <mrow><mi>L</mi>
+     </mrow>
+     <mrow><mn>0</mn>
+     </mrow>
+    </msub><mo>+</mo>
+    <msub>
+     <mrow><mi>L</mi>
+     </mrow>
+     <mrow><mn>1</mn>
+     </mrow>
+    </msub>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+   <mover>
+    <mrow><mi>q</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo>+</mo>
+   <msub>
+    <mrow><mi>L</mi>
+    </mrow>
+    <mrow><mn>2</mn>
+    </mrow>
+   </msub>
+   <mfrac>
+    <mrow>
+     <mrow><mi> &part; </mi>
+      <mover>
+       <mrow><mi>q</mi>
+       </mrow><mo stretchy="true">&tilde;</mo>
+      </mover>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi> &part; </mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac><mo>+</mo><mi>i</mi>
+   <mfrac>
+    <mrow>
+     <mrow><mi>d</mi><mi> &alpha; </mi>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mi>d</mi><mi>x</mi>
+     </mrow>
+    </mrow>
+   </mfrac>
+   <msub>
+    <mrow><mi>L</mi>
+    </mrow>
+    <mrow><mn>3</mn>
+    </mrow>
+   </msub>
+   <mover>
+    <mrow><mi>q</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo>=</mo><mn>0</mn>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-76' />
+with initial conditions,</div>
+
+<div class="standard"><a id='magicparlabel-77' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mover>
+    <mrow><mi>q</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow>
+    <msub>
+     <mrow><mi>x</mi>
+     </mrow>
+     <mrow><mn>0</mn>
+     </mrow>
+    </msub><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo>=</mo>
+   <msub>
+    <mrow><mi>q</mi>
+    </mrow>
+    <mrow><mn>0</mn>
+    </mrow>
+   </msub><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>y</mi><mo>,</mo><mi>z</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo>,</mo><mspace width="40px" /><mi> &alpha; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <msub>
+    <mrow><mi>x</mi>
+    </mrow>
+    <mrow><mn>0</mn>
+    </mrow>
+   </msub><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo>=</mo>
+   <msub>
+    <mrow><mi> &alpha; </mi>
+    </mrow>
+    <mrow><mn>0</mn>
+    </mrow>
+   </msub>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-78' />
+and boundary conditions, (Not finding a way to write it better) </div>
+
+<div class="standard"><a id='magicparlabel-79' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo>
+    <msub>
+     <mrow><mi>y</mi>
+     </mrow>
+     <mrow><mi>b</mi>
+     </mrow>
+    </msub><mo>,</mo>
+    <msub>
+     <mrow><mi>z</mi>
+     </mrow>
+     <mrow><mi>b</mi>
+     </mrow>
+    </msub>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo>=</mo>
+   <mover>
+    <mrow><mi>v</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo>
+    <msub>
+     <mrow><mi>y</mi>
+     </mrow>
+     <mrow><mi>b</mi>
+     </mrow>
+    </msub><mo>,</mo>
+    <msub>
+     <mrow><mi>z</mi>
+     </mrow>
+     <mrow><mi>b</mi>
+     </mrow>
+    </msub>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo>=</mo>
+   <mover>
+    <mrow><mi>w</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo>
+    <msub>
+     <mrow><mi>y</mi>
+     </mrow>
+     <mrow><mi>b</mi>
+     </mrow>
+    </msub><mo>,</mo>
+    <msub>
+     <mrow><mi>z</mi>
+     </mrow>
+     <mrow><mi>b</mi>
+     </mrow>
+    </msub>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo>=</mo><mn>0</mn><mspace width="40px" /><mspace width="40px" /><mi> &forall; </mi><mspace width="20px" />
+   <msub>
+    <mrow><mi>y</mi>
+    </mrow>
+    <mrow><mi>b</mi>
+    </mrow>
+   </msub><mo> &cup; </mo>
+   <msub>
+    <mrow><mi>z</mi>
+    </mrow>
+    <mrow><mi>b</mi>
+    </mrow>
+   </msub><mo> &isin; </mo><mi>b</mi><mi>o</mi><mi>u</mi><mi>n</mi><mi>d</mi><mi>a</mi><mi>r</mi><mi>i</mi><mi>e</mi><mi>s</mi>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-80' />
+It can be identified that LHS of normalization condition is a inner product of <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover>
+  </mstyle>
+ </mrow></math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mfrac>
+   <mrow>
+    <mrow><mi> &part; </mi>
+     <mstyle mathvariant='bold'>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&tilde;</mo>
+      </mover>
+     </mstyle>
+    </mrow>
+   </mrow>
+   <mrow>
+    <mrow><mi> &part; </mi><mi>x</mi>
+    </mrow>
+   </mrow>
+  </mfrac>
+ </mrow></math><div class="foot"><span class="foot_label">1</span><div class="foot_inner"><div class="plain_layout"><a id='magicparlabel-84' />
+Bold u represent vector velocity perturbation</div>
+</div></div>. Defining b as</div>
+
+<div class="standard"><a id='magicparlabel-85' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>b</mi><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mo>&lt;</mo>
+      <mstyle mathvariant='bold'>
+       <mover>
+        <mrow><mi>u</mi>
+        </mrow><mo stretchy="true">&tilde;</mo>
+       </mover>
+      </mstyle><mo>,</mo>
+      <mfrac>
+       <mrow>
+        <mrow><mi> &part; </mi>
+         <mstyle mathvariant='bold'>
+          <mover>
+           <mrow><mi>u</mi>
+           </mrow><mo stretchy="true">&tilde;</mo>
+          </mover>
+         </mstyle>
+        </mrow>
+       </mrow>
+       <mrow>
+        <mrow><mi> &part; </mi><mi>x</mi>
+        </mrow>
+       </mrow>
+      </mfrac><mo>&gt;</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mo>&lt;</mo>
+      <mstyle mathvariant='bold'>
+       <mover>
+        <mrow><mi>u</mi>
+        </mrow><mo stretchy="true">&tilde;</mo>
+       </mover>
+      </mstyle><mo>,</mo>
+      <mstyle mathvariant='bold'>
+       <mover>
+        <mrow><mi>u</mi>
+        </mrow><mo stretchy="true">&tilde;</mo>
+       </mover>
+      </mstyle><mo>&gt;</mo>
+     </mrow>
+    </mrow>
+   </mfrac>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-86' />
+From the definition <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>b</mi>
+ </mrow></math> represent component of <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <msub>
+   <mrow>
+    <mstyle mathvariant='bold'>
+     <mover>
+      <mrow><mi>u</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover>
+    </mstyle>
+   </mrow>
+   <mrow><mi>x</mi>
+   </mrow>
+  </msub>
+ </mrow></math> along <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover>
+  </mstyle>
+ </mrow></math>. Therefore we can write (<math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mfrac>
+   <mrow>
+    <mrow><mi> &part; </mi>
+     <mstyle mathvariant='bold'>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&tilde;</mo>
+      </mover>
+     </mstyle>
+    </mrow>
+   </mrow>
+   <mrow>
+    <mrow><mi> &part; </mi><mi>x</mi>
+    </mrow>
+   </mrow>
+  </mfrac>
+ </mrow></math> is written concisely as <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <msub>
+   <mrow>
+    <mstyle mathvariant='bold'>
+     <mover>
+      <mrow><mi>u</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover>
+    </mstyle>
+   </mrow>
+   <mrow><mi>x</mi>
+   </mrow>
+  </msub>
+ </mrow></math>)</div>
+
+<div class="standard"><a id='magicparlabel-87' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <msub>
+    <mrow>
+     <mstyle mathvariant='bold'>
+      <mover>
+       <mrow><mi>u</mi>
+       </mrow><mo stretchy="true">&tilde;</mo>
+      </mover>
+     </mstyle>
+    </mrow>
+    <mrow><mi>x</mi>
+    </mrow>
+   </msub><mo>=</mo><mi>b</mi>
+   <mstyle mathvariant='bold'>
+    <mover>
+     <mrow><mi>u</mi>
+     </mrow><mo stretchy="true">&tilde;</mo>
+    </mover>
+   </mstyle><mo>+</mo><mi>r</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-88' />
+where <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>r</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+  </mrow>
+ </mrow></math> represent component of <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <msub>
+   <mrow>
+    <mstyle mathvariant='bold'>
+     <mover>
+      <mrow><mi>u</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover>
+    </mstyle>
+   </mrow>
+   <mrow><mi>x</mi>
+   </mrow>
+  </msub>
+ </mrow></math> orthogonal to <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover>
+  </mstyle>
+ </mrow></math>.</div>
+
+<div class="standard"><a id='magicparlabel-89' />
+Homogeneous part of above differential equation yield solution <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <mstyle mathvariant='bold'>
+    <mover>
+     <mrow><mi>u</mi>
+     </mrow><mo stretchy="true">&tilde;</mo>
+    </mover>
+   </mstyle><mo> &sim; </mo><mo> exp </mo><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>b</mi><mi>x</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+  </mrow>
+ </mrow></math>, which suggests <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover>
+  </mstyle>
+ </mrow></math> may vary rapidly if <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>b</mi><mo>&gt;</mo><mn>0</mn>
+  </mrow>
+ </mrow></math>; contrary to assumption about <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover>
+  </mstyle>
+ </mrow></math>. </div>
+
+<div class="standard"><a id='magicparlabel-90' />
+Above orthogonal decomposition helps us understand normalization condition as follows. Given the values of <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <msub>
+   <mrow><mi> &alpha; </mi>
+   </mrow>
+   <mrow><mi>j</mi>
+   </mrow>
+  </msub>
+ </mrow></math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <msub>
+   <mrow>
+    <mstyle mathvariant='bold'>
+     <mover>
+      <mrow><mi>u</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover>
+    </mstyle>
+   </mrow>
+   <mrow><mi>j</mi>
+   </mrow>
+  </msub>
+ </mrow></math>, we solve equation (1.2.5) for <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <msub>
+   <mrow>
+    <mstyle mathvariant='bold'>
+     <mover>
+      <mrow><mi>u</mi>
+      </mrow><mo stretchy="true">&tilde;</mo>
+     </mover>
+    </mstyle>
+   </mrow>
+   <mrow>
+    <mrow><mi>j</mi><mo>+</mo><mn>1</mn>
+    </mrow>
+   </mrow>
+  </msub>
+ </mrow></math>. Now <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <msub>
+   <mrow><mi>b</mi>
+   </mrow>
+   <mrow>
+    <mrow><mi>j</mi><mo>+</mo><mn>1</mn>
+    </mrow>
+   </mrow>
+  </msub>
+ </mrow></math> can be obtained from definition of b as</div>
+
+<div class="standard"><a id='magicparlabel-91' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <msub>
+    <mrow><mi>b</mi>
+    </mrow>
+    <mrow>
+     <mrow><mi>j</mi><mo>+</mo><mn>1</mn>
+     </mrow>
+    </mrow>
+   </msub><mo>=</mo>
+   <mfrac>
+    <mrow>
+     <mrow><mo>&lt;</mo>
+      <msub>
+       <mrow>
+        <mstyle mathvariant='bold'>
+         <mover>
+          <mrow><mi>u</mi>
+          </mrow><mo stretchy="true">&tilde;</mo>
+         </mover>
+        </mstyle>
+       </mrow>
+       <mrow><mi>j</mi>
+       </mrow>
+      </msub><mo>,</mo>
+      <mfrac>
+       <mrow>
+        <mrow>
+         <msub>
+          <mrow>
+           <mstyle mathvariant='bold'>
+            <mover>
+             <mrow><mi>u</mi>
+             </mrow><mo stretchy="true">&tilde;</mo>
+            </mover>
+           </mstyle>
+          </mrow>
+          <mrow>
+           <mrow><mi>j</mi><mo>+</mo><mn>1</mn>
+           </mrow>
+          </mrow>
+         </msub><mo>-</mo>
+         <msub>
+          <mrow>
+           <mstyle mathvariant='bold'>
+            <mover>
+             <mrow><mi>u</mi>
+             </mrow><mo stretchy="true">&tilde;</mo>
+            </mover>
+           </mstyle>
+          </mrow>
+          <mrow><mi>j</mi>
+          </mrow>
+         </msub>
+        </mrow>
+       </mrow>
+       <mrow>
+        <mrow><mi> &utri; </mi><mi>x</mi>
+        </mrow>
+       </mrow>
+      </mfrac><mo>&gt;</mo>
+     </mrow>
+    </mrow>
+    <mrow>
+     <mrow><mo>&lt;</mo>
+      <msub>
+       <mrow>
+        <mstyle mathvariant='bold'>
+         <mover>
+          <mrow><mi>u</mi>
+          </mrow><mo stretchy="true">&tilde;</mo>
+         </mover>
+        </mstyle>
+       </mrow>
+       <mrow><mi>j</mi>
+       </mrow>
+      </msub><mo>,</mo>
+      <msub>
+       <mrow>
+        <mstyle mathvariant='bold'>
+         <mover>
+          <mrow><mi>u</mi>
+          </mrow><mo stretchy="true">&tilde;</mo>
+         </mover>
+        </mstyle>
+       </mrow>
+       <mrow><mi>j</mi>
+       </mrow>
+      </msub><mo>&gt;</mo>
+     </mrow>
+    </mrow>
+   </mfrac>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-92' />
+Now in case <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <msub>
+   <mrow><mi>b</mi>
+   </mrow>
+   <mrow>
+    <mrow><mi>j</mi><mo>+</mo><mn>1</mn>
+    </mrow>
+   </mrow>
+  </msub>
+ </mrow></math> is non-zero growth rate of <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover>
+  </mstyle>
+ </mrow></math> is of concern to us. Hence we update <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <msub>
+   <mrow><mi> &alpha; </mi>
+   </mrow>
+   <mrow><mi>j</mi>
+   </mrow>
+  </msub>
+ </mrow></math> as <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow>
+   <msubsup>
+    <mrow><mi> &alpha; </mi>
+    </mrow>
+    <mrow><mi>j</mi>
+    </mrow>
+    <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo><mn>1</mn><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+    </mrow>
+   </msubsup><mo>=</mo>
+   <msubsup>
+    <mrow><mi> &alpha; </mi>
+    </mrow>
+    <mrow><mi>j</mi>
+    </mrow>
+    <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo><mn>0</mn><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+    </mrow>
+   </msubsup><mo>+</mo>
+   <msubsup>
+    <mrow><mi>b</mi>
+    </mrow>
+    <mrow>
+     <mrow><mi>j</mi><mo>+</mo><mn>1</mn>
+     </mrow>
+    </mrow>
+    <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo><mn>0</mn><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+    </mrow>
+   </msubsup>
+  </mrow>
+ </mrow></math>. Bertolotti has shown in his paper[<a href='#LyXCite-key_2'>key-2</a>] that such a procedure leads to reduction in updated value of <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <msub>
+   <mrow><mi>b</mi>
+   </mrow>
+   <mrow>
+    <mrow><mi>j</mi><mo>+</mo><mn>1</mn>
+    </mrow>
+   </mrow>
+  </msub>
+ </mrow></math>. We repeat this procedure unless <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <msub>
+   <mrow><mi>b</mi>
+   </mrow>
+   <mrow>
+    <mrow><mi>j</mi><mo>+</mo><mn>1</mn>
+    </mrow>
+   </mrow>
+  </msub>
+ </mrow></math> acquires a sufficiently small value within prescribed tolerances. Thus, normalization condition provides the unique value of <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi> &alpha; </mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo><mi>x</mi><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+  </mrow>
+ </mrow></math> that removes any exponential change in <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover>
+  </mstyle>
+ </mrow></math> measured by b. Then, <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover>
+  </mstyle>
+ </mrow></math> equals <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>r</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+  </mrow>
+ </mrow></math> that captures the slow, streamwise variation of <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mstyle mathvariant='bold'>
+   <mover>
+    <mrow><mi>u</mi>
+    </mrow><mo stretchy="true">&tilde;</mo>
+   </mover>
+  </mstyle>
+ </mrow></math>. Once convergence for <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>b</mi>
+ </mrow></math> is achieved we march to next step.</div>
+<h1 class="chapter"><span class="chapter_label">Chapter 3</span> <a id='magicparlabel-93' />
+Extension to generic geometries</h1>
+<div class="standard"><a id='magicparlabel-94' />
+The core code &ldquo;pse&rdquo; will be written to work on a coordinate system <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+  <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi>
+  </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+ </mrow></math> wherein a very standard geometry is present as shown in the diagram below. <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>x</mi>
+ </mrow></math> will be the streamwise direction. The <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>y</mi>
+ </mrow></math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>z</mi>
+ </mrow></math> boundaries are restricted to <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>y</mi><mo>=</mo><mo> &plusmn; </mo><mn>1</mn>
+  </mrow>
+ </mrow></math> and <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mi>z</mi><mo>=</mo><mo> &plusmn; </mo><mn>1</mn>
+  </mrow>
+ </mrow></math>. Any different geometry if required to be solved using &ldquo;pse.c&rdquo; first must be transformed to standard geometry using some transformation <math xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow><mi>f</mi>
+ </mrow></math> given as</div>
+
+<div class="standard"><a id='magicparlabel-95' />
+<math display="block" xmlns="http://www.w3.org/1998/Math/MathML">
+ <mrow>
+  <mrow><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi>x</mi><mo>,</mo><mi>y</mi><mo>,</mo><mi>z</mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo><mo>=</mo><mi>f</mi><mo form='prefix' fence='true' stretchy='true' symmetric='true'>(</mo>
+   <mrow><mi> &chi; </mi><mo>,</mo><mi> &eta; </mi><mo>,</mo><mi> &zeta; </mi>
+   </mrow><mo form='postfix' fence='true' stretchy='true' symmetric='true'>)</mo>
+  </mrow>
+ </mrow></math></div>
+
+<div class="standard"><a id='magicparlabel-96' />
+After transformation to standard geometry, the solution is done and result is transformed back to original geometry.</div>
+
+<div class="standard"><a id='magicparlabel-97' />
+<img src='0_home_nebula_Dropbox_ME_project_manual_domain_trans.png' alt='image: 0_home_nebula_Dropbox_ME_project_manual_domain_trans.png' />
+</div>
+<h2 class="section"><span class="section_label">3.1</span> <a id='magicparlabel-98' />
+About pse</h2>
+<h2 class='bibliography'>Bibliography</h2>
+
+<div class='bibliography'><div class="bibliography"><a id='magicparlabel-99' />
+<a id='LyXCite-key-1' />
+<span class='bibitemlabel'>1</span> Michael S. Broadhurst, Spence J. Sherwin, The Parabolised Stability Equations for 3D-Flows </div>
+
+<div class="bibliography"><a id='magicparlabel-100' />
+<a id='LyXCite-key-2' />
+<span class='bibitemlabel'>2</span> F. P. Bertolotti, Herbert and P. R. Spalart, Linear and nonlinear stability of the Blasius boundary layer </div>
+</div></body>
+</html>
