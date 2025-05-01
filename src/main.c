@@ -11,15 +11,15 @@ int read_base_flow(ndr_data_t *);
 int main(int argc, char **args)
 {
 //    int i,j;
-    int z;
+//    int z;
 //    PetscScalar b,o;
     ndr_data_t ndrdata;
     PetscErrorCode ierr;
-    PetscViewer plotmat;
-    PetscViewer writemat;
+//    PetscViewer plotmat;
+//    PetscViewer writemat;
     PetscScalar beta, omega;
     PetscMPIInt rank,size;
-    PetscScalar *test;
+//    PetscScalar *test;
 //    double *vec;
 //    PetscScalar *der;
 //    double sum = 0;

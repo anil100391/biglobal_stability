@@ -84,7 +84,11 @@ void *vec_alloc(int nels,int nghost,size_t nbytes)
 {
 	void *vec;
 
-	posix_memalign(&vec,64,((nels+2*nghost)*nbytes));
+	if (0 != posix_memalign(&vec,64,((nels+2*nghost)*nbytes)))
+	{
+		return NULL;
+	}
+
 	memset(vec,0,(size_t)((nels+2*nghost)*nbytes));
 	vec += (nghost*nbytes);
 	
@@ -150,7 +154,11 @@ void *vec_view_alloc(int ns, int noff, int nghost, size_t nbytes)
 	int npts;
 
 	npts = (noff+2*nghost)*nbytes;
-	posix_memalign(&vec,64,npts);
+	if (0 != posix_memalign(&vec,64,npts))
+	{
+		return NULL;
+	}
+
 	memset(vec,0,(size_t)(npts));
 	vec += ((nghost)*nbytes);
 	vec -= (ns*nbytes);
@@ -318,9 +326,17 @@ void **mat2_alloc( int nr, int nc, int nghost, size_t nbytes)
 
 	npts = (nr+2*nghost)*(nc+2*nghost);
 
-	posix_memalign(&data,64,((nr+2*nghost)*sizeof(void *)));
+	if (0 != posix_memalign(&data,64,((nr+2*nghost)*sizeof(void *))))
+	{
+		return NULL;
+	}
+
 	mat = data;
-	posix_memalign(&data,64,((npts)*nbytes));
+	if (0 != posix_memalign(&data,64,((npts)*nbytes)))
+	{
+		return NULL;
+	}
+
 	mat[0]=data;
 
 	memset(mat[0],0,(size_t)(npts*nbytes));
@@ -401,9 +417,17 @@ void **mat2_view_alloc(int IS, int JS, int nr, int nc, int nghost, size_t nbytes
 
 	npts = (nr+2*nghost)*(nc+2*nghost);
 
-	posix_memalign(&data,64,((nr+2*nghost)*sizeof(void *)));
+	if (0 != posix_memalign(&data,64,((nr+2*nghost)*sizeof(void *))))
+	{
+		return NULL;
+	}
+
 	mat = data;
-	posix_memalign(&data,64,(npts*nbytes));
+	if (0 != posix_memalign(&data,64,(npts*nbytes)))
+	{
+		return NULL;
+	}
+
 	mat[0]=data;
 	memset(mat[0],0,(size_t)(npts*nbytes));
 
@@ -587,11 +611,23 @@ void ***mat3_alloc( int nr, int nc, int nd, int nghost, size_t nbytes)
 
 	npts = (nr+2*nghost)*(nc+2*nghost)*(nd+2*nghost);
 
-	posix_memalign(&data,64,((nr+2*nghost)*sizeof(void **)));
+	if (0 != posix_memalign(&data,64,((nr+2*nghost)*sizeof(void **))))
+	{
+		return NULL;
+	}
+
 	mat = data;
-	posix_memalign(&data,64,((nr+2*nghost)*(nc+2*nghost)*sizeof(void *)));
+	if (0 != posix_memalign(&data,64,((nr+2*nghost)*(nc+2*nghost)*sizeof(void *))))
+	{
+		return NULL;
+	}
+
 	mat[0] = data;
-	posix_memalign(&data,64,((npts)*nbytes));
+	if (0 != posix_memalign(&data,64,((npts)*nbytes)))
+	{
+		return NULL;
+	}
+
 	mat[0][0]=data;
 
 	memset(mat[0][0],0,(size_t)(npts*nbytes));
@@ -695,16 +731,28 @@ void ***mat3_view_alloc( int IS, int JS, int KS, \
 			 int nghost, size_t nbytes)
 {
 	void ***mat;
-	unsigned int i,j,k,npts;
+	unsigned int i,j,npts;
 	void *data;
 
 	npts = (nr+2*nghost)*(nc+2*nghost)*(nd+2*nghost);
 
-	posix_memalign(&data,64,((nr+2*nghost)*nbytes));
+	if (0 != posix_memalign(&data,64,((nr+2*nghost)*nbytes)))
+	{
+		return NULL;
+	}
+
 	mat = data;
-	posix_memalign(&data,64,((nr+2*nghost)*(nc+2*nghost)*nbytes));
+	if (0 != posix_memalign(&data,64,((nr+2*nghost)*(nc+2*nghost)*nbytes)))
+	{
+		return NULL;
+	}
+
 	mat[0] = data;
-	posix_memalign(&data,64,((npts)*nbytes));
+	if (0 != posix_memalign(&data,64,((npts)*nbytes)))
+	{
+		return NULL;
+	}
+
 	mat[0][0]=data;
 
 	memset(mat[0][0],0,(size_t)(npts)*nbytes);
