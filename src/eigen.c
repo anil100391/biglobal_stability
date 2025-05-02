@@ -19,13 +19,7 @@
    - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 */
 
-static char help[] = "Solves a generalized eigensystem Ax=kBx with matrices passed as arguments.\n"
-  "The command line options are:\n"
-  "  -evecs <filename>, output file to save computed eigenvectors.\n"
-  "  -ninitial <nini>, number of user-provided initial guesses.\n"
-  "  -finitial <filename>, binary file containing <nini> vectors.\n"
-  "  -nconstr <ncon>, number of user-provided constraints.\n"
-  "  -fconstr <filename>, binary file containing <ncon> vectors.\n\n";
+// Taken from slepsc tutorials ex7.c
 
 #include <data.h>
 #include <slepceps.h>
@@ -33,30 +27,29 @@ static char help[] = "Solves a generalized eigensystem Ax=kBx with matrices pass
 int eigen_solver(ndr_data_t *arg)
 {
   EPS            eps;             /* eigenproblem solver context */
-  KSP            ksp;
   ST             st;
+  KSP            ksp;
   EPSType        type;
   PetscReal      tol;
   Vec            xr,xi,*Iv,*Cv;
   PetscInt       nev,maxit,i,its,lits,nconv,nini=0,ncon=0;
   char           filename[PETSC_MAX_PATH_LEN];
   PetscViewer    viewer;
-  PetscBool      flg,evecs,ishermitian;
-  PetscErrorCode ierr;
+  PetscBool      evecs,ishermitian;
   PetscMPIInt    rank,size,Istart,Iend;
-  PetscScalar kr,ki;
+  PetscScalar    kr,ki;
 
   /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         Load the matrices that define the eigensystem, Ax=kBx
      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-  ierr = PetscPrintf(PETSC_COMM_WORLD,"\nGeneralized eigenproblem.\n\n");CHKERRQ(ierr);
+  PetscCall(PetscPrintf(PETSC_COMM_WORLD,"\nGeneralized eigenproblem.\n\n"));
 
-  ierr = MatGetVecs(arg->A,NULL,&xr);CHKERRQ(ierr);
-  ierr = MatGetVecs(arg->A,NULL,&xi);CHKERRQ(ierr);
-  ierr = MPI_Comm_rank(PETSC_COMM_WORLD,&rank);
-  ierr = MPI_Comm_size(PETSC_COMM_WORLD,&size);
-  ierr = MatGetOwnershipRange(arg->A,&Istart,&Iend);
+  PetscCall(MatCreateVecs(arg->A,NULL,&xr));
+  PetscCall(MatCreateVecs(arg->A,NULL,&xi));
+  PetscCall(MPI_Comm_rank(PETSC_COMM_WORLD,&rank));
+  PetscCall(MPI_Comm_size(PETSC_COMM_WORLD,&size));
+  PetscCall(MatGetOwnershipRange(arg->A,&Istart,&Iend));
   printf("process %d is responsible for rows %d to %d \n",rank,Istart,Iend);
   /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                 Create the eigensolver and set various options
@@ -65,86 +58,86 @@ int eigen_solver(ndr_data_t *arg)
   /*
      Create eigensolver context
   */
-  ierr = EPSCreate(PETSC_COMM_WORLD,&eps);CHKERRQ(ierr);
-  //ierr = EPSGetST(eps, &st);
-  //ierr = STSetType(st,STSINVERT);
-  //ierr = STSetShift(st,4.0+4.0*I);
+  PetscCall(EPSCreate(PETSC_COMM_WORLD,&eps));
+  //PetscCall(EPSGetST(eps, &st);
+  //PetscCall(STSetType(st,STSINVERT);
+  //PetscCall(STSetShift(st,4.0+4.0*I);
   /*
      Set operators. In this case, it is a generalized eigenvalue problem
   */
-  ierr = EPSSetOperators(eps,arg->A,arg->B);CHKERRQ(ierr);
-  ierr = EPSSetProblemType(eps, EPS_GNHEP); CHKERRQ(ierr);
-  //ierr = EPSSetTolerances(EPS eps,PetscReal tol,PetscInt maxits); CHKERRQ(ierr);
+  PetscCall(EPSSetOperators(eps,arg->A,arg->B));
+  PetscCall(EPSSetProblemType(eps, EPS_GNHEP));
+  //PetscCall(EPSSetTolerances(EPS eps,PetscReal tol,PetscInt maxits); CHKERRQ(ierr);
 
   /*
      Set solver parameters at runtime
   */
-  ierr = EPSSetFromOptions(eps);CHKERRQ(ierr);
+  PetscCall(EPSSetFromOptions(eps));
 
   /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                       Solve the eigensystem
      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-  ierr = EPSSolve(eps);CHKERRQ(ierr);
+  PetscCall(EPSSolve(eps));
 
   /*
      Optional: Get some information from the solver and display it
   */
-  ierr = EPSGetIterationNumber(eps,&its);CHKERRQ(ierr);
-  ierr = PetscPrintf(PETSC_COMM_WORLD," Number of iterations of the method: %D\n",its);CHKERRQ(ierr);
-  ierr = EPSGetST(eps,&st);CHKERRQ(ierr);
-  ierr = KSPGetTotalIterations(ksp,&lits);CHKERRQ(ierr);
-  ierr = PetscPrintf(PETSC_COMM_WORLD," Number of linear iterations of the method: %D\n",lits);CHKERRQ(ierr);
-  ierr = EPSGetType(eps,&type);CHKERRQ(ierr);
-  ierr = PetscPrintf(PETSC_COMM_WORLD," Solution method: %s\n\n",type);CHKERRQ(ierr);
-  ierr = EPSGetDimensions(eps,&nev,NULL,NULL);CHKERRQ(ierr);
-  ierr = PetscPrintf(PETSC_COMM_WORLD," Number of requested eigenvalues: %D\n",nev);CHKERRQ(ierr);
-  ierr = EPSGetTolerances(eps,&tol,&maxit);CHKERRQ(ierr);
-  ierr = PetscPrintf(PETSC_COMM_WORLD," Stopping condition: tol=%.4g, maxit=%D\n",(double)tol,maxit);CHKERRQ(ierr);
+  PetscCall(EPSGetIterationNumber(eps,&its));
+  PetscCall(PetscPrintf(PETSC_COMM_WORLD," Number of iterations of the method: %" PetscInt_FMT "\n",its));
+  PetscCall(EPSGetST(eps,&st));
+  PetscCall(STGetKSP(st,&ksp));
+  PetscCall(KSPGetTotalIterations(ksp,&lits));
+  PetscCall(PetscPrintf(PETSC_COMM_WORLD," Number of linear iterations of the method: %" PetscInt_FMT "\n",lits));
+  PetscCall(EPSGetType(eps,&type));
+  PetscCall(PetscPrintf(PETSC_COMM_WORLD," Solution method: %s\n\n",type));
+  PetscCall(EPSGetDimensions(eps,&nev,NULL,NULL));
+  PetscCall(PetscPrintf(PETSC_COMM_WORLD," Number of requested eigenvalues: %" PetscInt_FMT "\n",nev));
+  PetscCall(EPSGetTolerances(eps,&tol,&maxit));
+  PetscCall(PetscPrintf(PETSC_COMM_WORLD," Stopping condition: tol=%.4g, maxit=%" PetscInt_FMT "\n",(double)tol,maxit));
 
   /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
                     Display solution and clean up
      - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
-//  ierr = EPSPrintSolution(eps,NULL);CHKERRQ(ierr);
+//  PetscCall(EPSPrintSolution(eps,NULL));
   /*
      Save eigenvectors, if requested
   */
-  ierr = PetscOptionsGetString(NULL, NULL,"-evecs",filename,PETSC_MAX_PATH_LEN,&evecs);CHKERRQ(ierr);
-  ierr = EPSGetConverged(eps,&nconv);CHKERRQ(ierr);
+  PetscCall(PetscOptionsGetString(NULL, NULL,"-evecs",filename,PETSC_MAX_PATH_LEN,&evecs));
+  PetscCall(EPSGetConverged(eps,&nconv));
 
   for (i=0; i<nconv; i++) {
-    ierr = EPSGetEigenpair(eps,i,&kr,&ki,xr,xi); CHKERRQ(ierr);
+    PetscCall(EPSGetEigenpair(eps,i,&kr,&ki,xr,xi));
     PetscPrintf(PETSC_COMM_WORLD,"%f\t %f\n",PetscRealPart(kr),PetscImaginaryPart(kr));
   }
-    
 
 
   if (nconv>0 && evecs) {
-    ierr = PetscViewerASCIIOpen(PETSC_COMM_WORLD,filename,&viewer);
-    //ierr = PetscViewerBinaryOpen(PETSC_COMM_WORLD,filename,FILE_MODE_WRITE,&viewer);CHKERRQ(ierr);
-    ierr = EPSIsHermitian(eps,&ishermitian);CHKERRQ(ierr);
+    PetscCall(PetscViewerASCIIOpen(PETSC_COMM_WORLD,filename,&viewer));
+    //PetscCall(PetscViewerBinaryOpen(PETSC_COMM_WORLD,filename,FILE_MODE_WRITE,&viewer));
+    PetscCall(EPSIsHermitian(eps,&ishermitian));
     for (i=0;i<nconv;i++) {
-      ierr = EPSGetEigenvector(eps,i,xr,xi);CHKERRQ(ierr);
-      ierr = VecView(xr,viewer);CHKERRQ(ierr);
+      PetscCall(EPSGetEigenvector(eps,i,xr,xi));
+      PetscCall(VecView(xr,viewer));
 #if !defined(PETSC_USE_COMPLEX)
-      if (!ishermitian) { ierr = VecView(xi,viewer);CHKERRQ(ierr); }
+      if (!ishermitian) { PetscCall(VecView(xi,viewer)); }
 #endif
     }
-    ierr = PetscViewerDestroy(&viewer);CHKERRQ(ierr);
+    PetscCall(PetscViewerDestroy(&viewer));
   }
 
   /*
      Free work space
   */
-  ierr = EPSDestroy(&eps);CHKERRQ(ierr);
-  ierr = VecDestroy(&xr);CHKERRQ(ierr);
-  ierr = VecDestroy(&xi);CHKERRQ(ierr);
+  PetscCall(EPSDestroy(&eps));
+  PetscCall(VecDestroy(&xr));
+  PetscCall(VecDestroy(&xi));
   if (nini > 0) {
-    ierr = VecDestroyVecs(nini,&Iv);CHKERRQ(ierr);
+    PetscCall(VecDestroyVecs(nini,&Iv));
   }
   if (ncon > 0) {
-    ierr = VecDestroyVecs(ncon,&Cv);CHKERRQ(ierr);
+    PetscCall(VecDestroyVecs(ncon,&Cv));
   }
   return 0;
 }

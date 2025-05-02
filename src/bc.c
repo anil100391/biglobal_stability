@@ -1,4 +1,5 @@
 #include <data.h>
+#include <assert.h>
 #include <stdlib.h>
 
 
@@ -6,16 +7,16 @@ int set_bc(ndr_data_t *arg) {
 
     FILE *f;
     int nx = arg->nx, ny = arg->ny;
-    PetscInt i,j,Ii,locIi,Istart, Iend;
+    PetscInt i = -1 ,j = -1, Ii = -1, locIi = -1, Istart = -1, Iend = -1;
     PetscErrorCode ierr;
     int eqn,bctype,nz;
     int bcinfo[3][4];
     char ch,var,name;
-    PetscScalar *der, one=1.0, zero=0.0;
+    PetscScalar *der, one=1.0;
     int *col,k;
 
     f = fopen("bc.conf","r");
-    while (ch = fgetc(f) != '\n') {
+    while ((ch = fgetc(f)) != '\n') {
     
     }
 
@@ -28,6 +29,11 @@ int set_bc(ndr_data_t *arg) {
         else if (name=='r') j=1;
         else if (name=='t') j=2;
         else if (name=='l') j=3;
+        if ( i < 0 || i >= 3 || j < 0 || j >= 4 )
+        {
+            assert(!"Error parsing bc.conf");
+            continue;
+        }
         ch  = fgetc(f);
         bcinfo[i][j] = ch - '0'; fgetc(f);
 
