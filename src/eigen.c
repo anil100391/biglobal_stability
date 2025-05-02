@@ -20,7 +20,6 @@
 */
 
 // Taken from slepsc tutorials ex7.c
-#define PETSC_SILENCE_DEPRECATION_WARNINGS_3_6_0
 
 #include <data.h>
 #include <slepceps.h>
@@ -46,8 +45,8 @@ int eigen_solver(ndr_data_t *arg)
 
   PetscCall(PetscPrintf(PETSC_COMM_WORLD,"\nGeneralized eigenproblem.\n\n"));
 
-  PetscCall(MatGetVecs(arg->A,NULL,&xr));
-  PetscCall(MatGetVecs(arg->A,NULL,&xi));
+  PetscCall(MatCreateVecs(arg->A,NULL,&xr));
+  PetscCall(MatCreateVecs(arg->A,NULL,&xi));
   PetscCall(MPI_Comm_rank(PETSC_COMM_WORLD,&rank));
   PetscCall(MPI_Comm_size(PETSC_COMM_WORLD,&size));
   PetscCall(MatGetOwnershipRange(arg->A,&Istart,&Iend));
